@@ -1,0 +1,112 @@
+{
+  "original": "images/original.jpg",
+  "width": 418,
+  "height": 625,
+  "tests": [
+    {
+      "name": "test1",
+      "angle": 30,
+      "scale": 1.0,
+      "shift_x": 0,
+      "shift_y": 0,
+      "note": "rotation only",
+      "file": "images/generated/test1.png",
+      "matrix": [
+        [
+          0.866025,
+          0.5,
+          -128.249309
+        ],
+        [
+          -0.5,
+          0.866025,
+          146.367061
+        ]
+      ]
+    },
+    {
+      "name": "test2",
+      "angle": 0,
+      "scale": 1.5,
+      "shift_x": 0,
+      "shift_y": 0,
+      "note": "zoom only",
+      "file": "images/generated/test2.png",
+      "matrix": [
+        [
+          1.5,
+          0.0,
+          -104.5
+        ],
+        [
+          -0.0,
+          1.5,
+          -156.25
+        ]
+      ]
+    },
+    {
+      "name": "test3",
+      "angle": 45,
+      "scale": 1.5,
+      "shift_x": 20,
+      "shift_y": -15,
+      "note": "rotation + zoom + shift",
+      "file": "images/generated/test3.png",
+      "matrix": [
+        [
+          1.06066,
+          1.06066,
+          -324.13428
+        ],
+        [
+          -1.06066,
+          1.06066,
+          187.721672
+        ]
+      ]
+    },
+    {
+      "name": "test4",
+      "angle": 135,
+      "scale": 2.0,
+      "shift_x": -25,
+      "shift_y": 30,
+      "note": "hard: big rotation + big zoom + shift",
+      "file": "images/generated/test4.png",
+      "matrix": [
+        [
+          -1.414214,
+          1.414214,
+          37.628896
+        ],
+        [
+          -1.414214,
+          -1.414214,
+          1080.012373
+        ]
+      ]
+    },
+    {
+      "name": "test5",
+      "angle": 90,
+      "scale": 1.2,
+      "shift_x": 10,
+      "shift_y": 10,
+      "note": "my test",
+      "file": "images/generated/test5.png",
+      "matrix": [
+        [
+          0.0,
+          1.2,
+          -156.0
+        ],
+        [
+          -1.2,
+          0.0,
+          573.3
+        ]
+      ]
+    }
+  ]
+}
