@@ -117,3 +117,47 @@ With a bigger shift it could be completely wrong.
 | 2 | middle of picture | **we calculate it** from the answer key | we do (check only) |
 | 3 | middle of picture | **computer finds it** (phase correlation) | computer finds rotation + zoom |
 | 4 | **computer searches** many centers | computer finds it for each center | computer finds rotation + zoom + shift |
+
+---
+
+## Q7. Simple summary of Steps 1–3 (example: test1, photo turned 30°)
+
+**Big goal:** photo 2 is turned, zoomed and moved. The computer must tell us how much.
+
+**Step 1 – make a puzzle with an answer key.**
+We turned the photo 30° ourselves (test1) and wrote the answer in `test_cases.json`.
+Like a teacher writing a test AND the answer sheet.
+
+**Step 2 – unroll and check the idea (using the answer key).**
+1. Unroll the original (log-polar) – like peeling a can label flat.
+2. Unroll test1.
+3. They look the same, just one is moved up.
+4. WE calculate from the answer key: 30° = move up 30 rows.
+5. Move the original's flat picture up 30 rows and compare → difference 2.0 (almost identical).
+→ Turning = flat picture moves up/down. Zooming = flat picture moves right.
+→ The computer found NOTHING here. We gave it the answer. We only proved the idea.
+Like a teacher checking that the answer sheet is correct.
+
+**Step 3 – the computer finds it by itself (no answer key).**
+1. Put flat picture 2 on top of flat picture 1 (like two transparent sheets).
+2. Try every position (92,160 of them), give each a score.
+3. Keep the best one (the peak): "up 30 rows, right 0 columns".
+4. Convert: 30 rows → turned 30°, 0 columns → zoom ×1.0.
+5. Grade with the answer key → exactly right.
+Like the student solving the test alone.
+
+| | Step 2 | Step 3 |
+|---|---|---|
+| Who decides how far to move? | we do (answer key) | the computer (tries all, picks best) |
+| Purpose | prove the idea | actually solve the problem |
+| Output | "yes, they match" | "turned 30°, zoom ×1.0" |
+
+**Why test3/4/5 are not solved yet:** both photos are unrolled around their own MIDDLE.
+test3 was also moved 20 px, so its middle is a DIFFERENT building → the flat pictures
+don't match well → low peak, unsure answer. Step 4: try many middles, keep the best.
+
+**One line each:**
+- Step 1: make the puzzle + write the answer.
+- Step 2: show "turned" = "flat picture moved" (using the answer).
+- Step 3: computer finds how far it moved → turn + zoom.
+- Step 4: computer also finds where the middle is → shift.
