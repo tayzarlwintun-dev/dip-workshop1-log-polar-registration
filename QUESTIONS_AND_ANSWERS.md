@@ -161,3 +161,42 @@ don't match well → low peak, unsure answer. Step 4: try many middles, keep the
 - Step 2: show "turned" = "flat picture moved" (using the answer).
 - Step 3: computer finds how far it moved → turn + zoom.
 - Step 4: computer also finds where the middle is → shift.
+
+---
+
+## Q8. What does "unrolling" mean?
+
+Unrolling = turning a round view into a flat rectangle (log-polar transform).
+
+How the computer does it – imagine standing on ONE spot of the photo with a laser pointer:
+1. Point right (0°). Walk outward along the laser, write down every color you pass
+   (sky, sky, building, road...). That list = **row 0**.
+2. Turn 1°, do it again → **row 1**.
+3. Keep turning, all the way to 359° → 360 rows.
+4. Stack the rows → the unrolled picture.
+   - each row = what you see in one direction
+   - left = close to where you stand, right = far away
+
+Like peeling a can label flat, or turning around in a room and drawing a panorama.
+
+**Key point:** the unrolled picture depends completely on WHERE YOU STAND.
+Different spot → different flat picture.
+
+## Q9. Why are test3/4/5 not solved in Step 3?
+
+The program always stands at the MIDDLE PIXEL of each photo, (209, 312).
+
+- **test1 (only turned):** turned around its middle, and the middle doesn't move when
+  you spin around it (like the center of a wheel). Middle of original = building A,
+  middle of test1 = still building A. Same spot → same view, just starting from
+  another direction → flat picture only slides. ✅
+- **test3 (turned + moved 20 px):** everything moved 20 px, but the program still stands
+  at pixel (209, 312), which now shows building B. Standing on two DIFFERENT buildings
+  → every direction shows something slightly different → the flat pictures are
+  different pictures, not slid copies → low peak. ❌
+
+Like two people describing the view from a rooftop: same roof → descriptions match
+(maybe one started facing another way). Different roofs → they don't match.
+
+**Fix (Step 4):** try many standing spots in the test photo, keep the one whose
+flat picture matches best. That spot tells us the shift.
