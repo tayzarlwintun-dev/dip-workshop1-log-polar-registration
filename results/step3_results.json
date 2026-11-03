@@ -1,0 +1,72 @@
+[
+  {
+    "name": "test1",
+    "slide_rows": -30.0,
+    "slide_cols": 0.001,
+    "peak": 0.8498,
+    "angle_found": 30.0,
+    "angle_true": 30,
+    "angle_error_deg": 0.0,
+    "scale_found": 1.0,
+    "scale_true": 1.0,
+    "scale_error_percent": 0.002,
+    "shifted": false,
+    "correct": true
+  },
+  {
+    "name": "test2",
+    "slide_rows": -0.003,
+    "slide_cols": 17.125,
+    "peak": 0.6967,
+    "angle_found": 0.003,
+    "angle_true": 0,
+    "angle_error_deg": 0.003,
+    "scale_found": 1.4868,
+    "scale_true": 1.5,
+    "scale_error_percent": 0.878,
+    "shifted": false,
+    "correct": true
+  },
+  {
+    "name": "test3",
+    "slide_rows": -46.148,
+    "slide_cols": 18.048,
+    "peak": 0.0308,
+    "angle_found": 46.148,
+    "angle_true": 45,
+    "angle_error_deg": 1.148,
+    "scale_found": 1.5189,
+    "scale_true": 1.5,
+    "scale_error_percent": 1.263,
+    "shifted": true,
+    "correct": false
+  },
+  {
+    "name": "test4",
+    "slide_rows": -137.338,
+    "slide_cols": 31.205,
+    "peak": 0.0406,
+    "angle_found": 137.338,
+    "angle_true": 135,
+    "angle_error_deg": 2.338,
+    "scale_found": 2.0601,
+    "scale_true": 2.0,
+    "scale_error_percent": 3.006,
+    "shifted": true,
+    "correct": false
+  },
+  {
+    "name": "test5",
+    "slide_rows": -88.015,
+    "slide_cols": 9.982,
+    "peak": 0.039,
+    "angle_found": 88.015,
+    "angle_true": 90,
+    "angle_error_deg": 1.985,
+    "scale_found": 1.2601,
+    "scale_true": 1.2,
+    "scale_error_percent": 5.009,
+    "shifted": true,
+    "correct": false
+  }
+]

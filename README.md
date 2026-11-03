@@ -14,7 +14,7 @@ automatically, then put picture 2 back on top of picture 1.
 | 0 | Set up folder, Python, git | done |
 | 1 | Make test pictures with a known rotation / zoom / shift | done |
 | 2 | Log-polar transform | done |
-| 3 | Find rotation and zoom (cross-correlation) | to do |
+| 3 | Find rotation and zoom (cross-correlation) | done |
 | 4 | Find the shift (search for the center) | to do |
 | 5 | Align picture 2 onto picture 1 and overlay | to do |
 | 6 | Optimizer fine-tuning (bonus) | to do |
@@ -26,12 +26,14 @@ automatically, then put picture 2 back on top of picture 1.
 - `JOURNAL.md` – what was done at each step
 - `TESTS_AND_FAILURES.md` – tests we ran and what went wrong
 - `IDEAS.md` – ideas for later
+- `QUESTIONS_AND_ANSWERS.md` – my questions with simple answers
 
 ## How to run
 ```bash
 source .venv/bin/activate
 python step1_make_test_images.py   # make test pictures
 python step2_log_polar.py          # log-polar pictures + slide check
+python step3_find_rotation_scale.py  # find rotation + zoom by itself
 ```
 
 ## Tools

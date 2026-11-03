@@ -7,3 +7,5 @@
 - Add a test with zoom smaller than 1 (×0.5, zoom out).
 - Try more log-polar columns (512) to see if the zoom match gets better.
 - Ignore the blurry left part (very near the center) when matching.
+- Use the peak value as a "confidence" number: if peak < 0.1, say "not sure".
+- Make a test with a BIG shift (e.g. 100 px) to show Step 3 really fails without Step 4.

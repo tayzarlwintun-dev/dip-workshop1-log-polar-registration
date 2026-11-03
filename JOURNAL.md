@@ -86,3 +86,40 @@ lecture idea: rotation = slide up/down, zoom = slide right.
 
 **Next:** Step 3 – let the computer FIND the slide by itself (cross-correlation),
 then turn it into rotation angle and zoom.
+
+## Step 3 – Find rotation and zoom by itself (2026-11-04)
+**Goal:** the computer finds the slide WITHOUT the answer key, then turns it
+into rotation angle and zoom.
+
+**Did:** wrote `step3_find_rotation_scale.py`.
+- Unroll original and test picture (same as Step 2, center = middle of picture).
+- Phase correlation: scores all 360 × 256 = 92,160 possible slides at once
+  (Fourier transform), keeps the best one. Sub-pixel accuracy with a small
+  parabola fit around the best spot. Hanning window softens the cut left/right edges.
+- rows slid → angle = −rows / 360 × 360°;  columns slid → zoom = e^(cols × log(375.9) / 256)
+- "Peak" = how strong the best match is (1 = perfect, ~0 = guessing).
+
+**Results:**
+
+| Test | True | Found | Angle error | Zoom error | Peak | Verdict |
+|---|---|---|---|---|---|---|
+| test1 | 30°, ×1.0 | 30.00°, ×1.000 | 0.00° | 0.00% | 0.850 | correct ✅ |
+| test2 | 0°, ×1.5 | 0.00°, ×1.487 | 0.00° | 0.88% | 0.697 | correct ✅ |
+| test3 | 45°, ×1.5 + shift | 46.15°, ×1.519 | 1.15° | 1.26% | 0.031 | weak, shifted |
+| test4 | 135°, ×2.0 + shift | 137.34°, ×2.060 | 2.34° | 3.01% | 0.041 | weak, shifted |
+| test5 | 90°, ×1.2 + shift | 88.02°, ×1.260 | 1.98° | 5.01% | 0.039 | weak, shifted |
+
+**Problems / surprises:**
+- The shifted tests are surprisingly CLOSE (1–2° off), because the shift is small
+  (10–25 px). But the peak is ~20× weaker (0.03 vs 0.85), so the result is not reliable.
+- Changed the verdict text from "wrong" to "not exact, weak peak" to be honest about this.
+
+**Limits:**
+- Center is always the middle of the picture → only works without shift.
+- test2 peak (0.70) is lower than test1 (0.85): zoom pushes part of the picture
+  off the right edge of the log-polar picture, so there is less to match.
+
+**Questions I had:** see `QUESTIONS_AND_ANSWERS.md` (peak, what was manual in
+Step 2, what Step 3 does, does it find the center).
+
+**Next:** Step 4 – search for the right center to find the shift.
