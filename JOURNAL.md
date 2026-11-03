@@ -42,16 +42,47 @@ At 90° the tall photo turns sideways, so black bars appear at the top and botto
 
 **Next:** Step 2 – log-polar transform.
 
-## Step 2 – Log-polar transform (in progress)
-**Goal:** turn each picture into its log-polar ("unrolled") form.
-Rows = angle (0° to 360°), columns = log of the distance from the center.
-**Expect:** rotating the photo makes the log-polar picture slide down;
-zooming makes it slide right.
+## Step 2 – Log-polar transform (2026-11-04)
+**Goal:** turn each picture into its log-polar ("unrolled") form and check the
+lecture idea: rotation = slide up/down, zoom = slide right.
 
-**Did:**
-
-**Problems:**
+**Did:** wrote `step2_log_polar.py`.
+- Pictures are used in grayscale (only brightness is needed for matching).
+- `cv2.warpPolar` with `WARP_POLAR_LOG`, centered on the picture center (209, 312).
+- Size: 360 rows (1 row = 1°) × 256 columns (log distance). Max radius = 375.9 px
+  (half the diagonal, so the corners are included).
+- Check: slide the ORIGINAL's log-polar picture by the expected amount and compare
+  it with each test's log-polar picture (average brightness difference, ignoring black).
 
 **Results:**
 
+| Test | Expected slide (rows, cols) | Difference before | After sliding | Verdict |
+|---|---|---|---|---|
+| test1 (30°) | (−30, 0) | 27.4 | **2.0** | match ✅ |
+| test2 (×1.5) | (0, 17.5) | 24.9 | **6.5** | match ✅ |
+| test3 (45°, ×1.5, shift) | (−45, 17.5) | 34.7 | 29.9 | no match (shifted) |
+| test4 (135°, ×2, shift) | (−135, 29.9) | 59.9 | 42.7 | no match (shifted) |
+| test5 (90°, ×1.2, shift) | (−90, 7.9) | 74.8 | 50.2 | no match (shifted) |
+
+- Rotation really is a slide along the angle axis, and zoom really is a slide
+  along the log-distance axis. The lecture idea is confirmed.
+- Zoom ×1.5 → log(1.5) on OpenCV's log ruler = 17.5 columns.
+
+**Problems / surprises:**
+- Sign: a counter-clockwise turn gives a slide of **−30** rows (up), not +30.
+  OpenCV's y-axis points down, so it measures angles clockwise. Same idea,
+  opposite direction. Must remember this in Step 3.
+- test3, test4 and test5 do not match. Not a bug: these pictures are also SHIFTED,
+  so their center sits on a different part of the city and the unrolling starts
+  from the wrong point. This is the translation problem from the paper → Step 4.
+
 **Limits:**
+- Black bumps on the right: the picture is a rectangle, so in some directions
+  it ends before the max radius (like the baboon slide).
+- Left side is blurry: near the center only a few pixels are stretched over many
+  columns (log-polar gives the center too much space, the edges too little).
+- Zoom: content pushed past the right edge is lost (no wrap-around), so the
+  zoom match (6.5) is not as perfect as the rotation match (2.0).
+
+**Next:** Step 3 – let the computer FIND the slide by itself (cross-correlation),
+then turn it into rotation angle and zoom.
