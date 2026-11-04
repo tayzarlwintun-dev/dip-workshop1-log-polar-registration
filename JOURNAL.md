@@ -205,3 +205,49 @@ fixed test photo lines up with the original.
 
 **Next:** Step 6 (bonus) – optimizer: nudge the numbers a tiny bit at a time until the
 overlay is as clean as possible (like the paper's Levenberg–Marquardt step).
+
+## Step 6 – Optimizer fine-tuning (bonus) (2026-11-04)
+**Goal:** the paper's second half – start from Step 4's good guess and fine-tune it
+until the photos match as well as possible.
+
+**Did:** wrote `step6_optimizer.py`.
+- 6 knobs (the paper's a1..a6): new_x = a1·x + a2·y + a3, new_y = a4·x + a5·y + a6
+  (can describe turn, zoom, shift AND slant).
+- Measure of match = SSD (the paper's): sum of (brightness difference)² over visible pixels.
+- Levenberg–Marquardt (same as the paper) via scipy `least_squares(method="lm")`.
+- Start from Step 4's numbers. Two rounds: blurry photos first (σ = 2), then sharper (σ = 1).
+- Like tuning a radio / walking blindfolded downhill: only works if you START close,
+  so Step 4 must come first (the paper's main point).
+
+**Results:**
+
+| Test | Pixels off Step 4 → 6 | SSD Step 4 → 6 | Zoom Step 4 → 6 (true) | Angle Step 4 → 6 (true) |
+|---|---|---|---|---|
+| test1 | 0.01 → 0.00 | 61.1 → 61.1 | 1.0000 → 1.0000 (1.00) | 30.00 → 30.00 (30) |
+| test2 | 0.64 → 0.04 | 144.4 → 33.0 | 1.4929 → 1.4996 (1.50) | 0.02 → 0.00 (0) |
+| test3 | 0.93 → 0.00 | 346.9 → 36.2 | 1.5042 → 1.5000 (1.50) | 44.71 → 45.00 (45) |
+| test4 | 2.04 → 0.01 | 786.5 → 22.7 | 1.9615 → 2.0000 (2.00) | 135.10 → 135.00 (135) |
+| test5 | 0.56 → 0.02 | 183.8 → 57.1 | 1.2005 → 1.2000 (1.20) | 89.87 → 90.00 (90) |
+
+- All tests now under 0.05 px from perfect. test4: SSD about 35× smaller.
+- Correction matrix (how much the optimizer changed) is close to "do nothing"
+  (1 0 0 / 0 1 0), like the paper: the log-polar guess was already very close.
+- `results/step6_compare.png`: test4 cars have red/cyan double edges after Step 4,
+  clean gray after Step 6.
+
+**Problems / fixes (2 bugs):**
+1. Optimizer did not move at all (stopped after 1 look). Cause: `cv2.warpAffine` rounds
+   positions to 1/32 pixel, the optimizer's tiny test-steps saw "no change".
+   Fix: use exact bilinear sampling (`scipy.ndimage.map_coordinates`) in the optimizer.
+2. test2 and test4 barely improved. Cause: these photos fill the whole frame, so pixels at
+   the very edge slipped outside when the zoom changed → big "punishment" → optimizer
+   refused to change the zoom. Fix: trim a thin strip around the outer frame too
+   (`cv2.erode` with `BORDER_CONSTANT`).
+
+**Limits:**
+- Needs a good start (from Step 4). Alone, from "no change", it would get lost on big turns.
+- Slower than Step 4's search per step, and test photos are perfect (no noise / lighting change).
+- Zoomed comparison picture for test1/2/5 shows mostly sky, so the difference is easier
+  to see in the numbers than by eye.
+
+**Next:** Step 7 – report notes.

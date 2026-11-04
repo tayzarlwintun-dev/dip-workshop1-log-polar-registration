@@ -368,3 +368,19 @@ on top of the original. (Like undoing a turn + crop on a phone photo.)
 **Why test4 is worst:** turned 135° AND zoomed ×2; Step 4 found ×1.96 instead of ×2.00.
 A small zoom error grows far from the middle, like a slightly wrong-size photocopy.
 Step 6 (optimizer) fixes this kind of small leftover error.
+
+---
+
+## Q16. What does Step 6 (optimizer) do? (simple)
+
+Step 4 = good guess, not perfect (test4 zoom ×1.96 instead of ×2.00).
+Optimizer: start from that guess → change the numbers a tiny bit → better match? keep it.
+Worse? try another direction → repeat until nothing helps. Like tuning an old radio.
+
+"Better match" = SSD: for every pixel, (brightness difference)², add all up. Smaller = better.
+6 knobs (a1..a6) like the paper – can also fix slant.
+
+Why Step 4 first? The optimizer is like walking blindfolded downhill: it only finds the lowest
+point if it starts nearby. That is the paper's main idea: rough guess (log-polar) + fine-tuning.
+
+Result: all tests under 0.05 px from perfect (test4: 2.04 → 0.01 px, zoom exactly ×2.0000).

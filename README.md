@@ -17,7 +17,7 @@ automatically, then put picture 2 back on top of picture 1.
 | 3 | Find rotation and zoom (cross-correlation) | done |
 | 4 | Find the shift (search for the center) | done |
 | 5 | Align picture 2 onto picture 1 and overlay | done |
-| 6 | Optimizer fine-tuning (bonus) | to do |
+| 6 | Optimizer fine-tuning (bonus) | done |
 | 7 | Report notes | to do |
 
 ## Folder layout
@@ -36,6 +36,7 @@ python step2_log_polar.py          # log-polar pictures + slide check
 python step3_find_rotation_scale.py  # find rotation + zoom by itself
 python step4_find_shift.py           # also find the shift (search for the center)
 python step5_align_and_overlay.py    # put test photos back + red/cyan overlay
+python step6_optimizer.py            # fine-tune with Levenberg-Marquardt (bonus)
 ```
 
 ## Tools

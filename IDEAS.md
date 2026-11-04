@@ -13,3 +13,5 @@
 - Search spots between pixels (sub-pixel) to get the shift more exact.
 - Show a "difference picture" (white = mismatch) next to the red/cyan overlay.
 - Use the step 5 overlay pictures in the report as the main result figure.
+- Try the optimizer ALONE (start from "no change") on test4 to show it gets lost – proves the paper's point.
+- Choose the zoomed area in step6_compare.png by detail (buildings), not by distance, so the improvement is visible.

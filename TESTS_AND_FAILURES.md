@@ -18,3 +18,6 @@
 | 2026-11-04 | 5 | Fixed photos line up with original | small difference, < 3 px off | all 5 lined up, 0.01–2.04 px | yes | |
 | 2026-11-04 | 5 | "Pixels off" measure for test4 | ~2 px | 7.98 px (first try) | no → fixed | measured over whole photo; now only visible part |
 | 2026-11-04 | 5 | Overview figure title | readable | overlapped row 1 | no → fixed | moved title up |
+| 2026-11-04 | 6 | Optimizer improves Step 4 numbers | pixels off goes down | did not move (stopped after 1 look) | no → fixed | cv2.warpAffine rounds to 1/32 px; use map_coordinates |
+| 2026-11-04 | 6 | test2/test4 improve | pixels off goes down | barely changed (2.04 → 1.94) | no → fixed | edge pixels slipping out; trim outer frame |
+| 2026-11-04 | 6 | All tests after fixes | < 0.1 px off | 0.00–0.04 px | yes | test4 zoom exactly ×2.0000 |
