@@ -18,7 +18,7 @@ automatically, then put picture 2 back on top of picture 1.
 | 4 | Find the shift (search for the center) | done |
 | 5 | Align picture 2 onto picture 1 and overlay | done |
 | 6 | Optimizer fine-tuning (bonus) | done |
-| 7 | Report notes | to do |
+| 7 | Report notes | done |
 
 ## Folder layout
 - `images/` – input photos (`original.jpg`)
@@ -27,6 +27,7 @@ automatically, then put picture 2 back on top of picture 1.
 - `TESTS_AND_FAILURES.md` – tests we ran and what went wrong
 - `IDEAS.md` – ideas for later
 - `QUESTIONS_AND_ANSWERS.md` – my questions with simple answers
+- `REPORT_NOTES.md` – everything for the report (method, results tables, figures, limits)
 
 ## How to run
 ```bash

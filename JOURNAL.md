@@ -251,3 +251,13 @@ until the photos match as well as possible.
   to see in the numbers than by eye.
 
 **Next:** Step 7 – report notes.
+
+## Step 7 – Report notes (2026-11-04)
+**Did:** wrote `REPORT_NOTES.md`: goal, background of the paper, test data, method per step,
+all results tables (Steps 2–6), list of the 7 figures to use, comparison with the paper,
+differences from the paper, 5 problems fixed, limits, conclusion, suggested report layout,
+how to reproduce.
+
+**Result:** all 7 workshop steps done. Final accuracy: all 5 tests within 0.05 px after Step 6.
+
+**Next:** write the report from `REPORT_NOTES.md`; compare with my friend's work.
