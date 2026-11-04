@@ -1,0 +1,127 @@
+[
+  {
+    "name": "test1",
+    "spot_found": [
+      209.0,
+      312.5
+    ],
+    "peak": 0.6714,
+    "angle_found": 30.002,
+    "angle_true": 30,
+    "angle_error_deg": 0.002,
+    "scale_found": 1.0,
+    "scale_true": 1.0,
+    "scale_error_percent": 0.003,
+    "shift_found": [
+      -0.0,
+      0.0
+    ],
+    "shift_true": [
+      0,
+      0
+    ],
+    "shift_error_px": 0.0,
+    "correct": true,
+    "seconds": 1.68
+  },
+  {
+    "name": "test2",
+    "spot_found": [
+      209.0,
+      312.5
+    ],
+    "peak": 0.5616,
+    "angle_found": 0.022,
+    "angle_true": 0,
+    "angle_error_deg": 0.022,
+    "scale_found": 1.4929,
+    "scale_true": 1.5,
+    "scale_error_percent": 0.472,
+    "shift_found": [
+      -0.0,
+      0.0
+    ],
+    "shift_true": [
+      0,
+      0
+    ],
+    "shift_error_px": 0.0,
+    "correct": true,
+    "seconds": 1.67
+  },
+  {
+    "name": "test3",
+    "spot_found": [
+      192.0,
+      310.5
+    ],
+    "peak": 0.3214,
+    "angle_found": 44.711,
+    "angle_true": 45,
+    "angle_error_deg": 0.289,
+    "scale_found": 1.5042,
+    "scale_true": 1.5,
+    "scale_error_percent": 0.282,
+    "shift_found": [
+      20.29,
+      -15.85
+    ],
+    "shift_true": [
+      20,
+      -15
+    ],
+    "shift_error_px": 0.9,
+    "correct": true,
+    "seconds": 1.71
+  },
+  {
+    "name": "test4",
+    "spot_found": [
+      211.0,
+      331.5
+    ],
+    "peak": 0.2877,
+    "angle_found": 135.097,
+    "angle_true": 135,
+    "angle_error_deg": 0.097,
+    "scale_found": 1.9615,
+    "scale_true": 2.0,
+    "scale_error_percent": 1.927,
+    "shift_found": [
+      -23.53,
+      29.17
+    ],
+    "shift_true": [
+      -25,
+      30
+    ],
+    "shift_error_px": 1.69,
+    "correct": true,
+    "seconds": 1.68
+  },
+  {
+    "name": "test5",
+    "spot_found": [
+      217.0,
+      304.5
+    ],
+    "peak": 0.5039,
+    "angle_found": 89.866,
+    "angle_true": 90,
+    "angle_error_deg": 0.134,
+    "scale_found": 1.2005,
+    "scale_true": 1.2,
+    "scale_error_percent": 0.046,
+    "shift_found": [
+      9.58,
+      9.63
+    ],
+    "shift_true": [
+      10,
+      10
+    ],
+    "shift_error_px": 0.56,
+    "correct": true,
+    "seconds": 1.69
+  }
+]

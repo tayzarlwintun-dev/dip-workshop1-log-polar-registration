@@ -200,3 +200,44 @@ Like two people describing the view from a rooftop: same roof → descriptions m
 
 **Fix (Step 4):** try many standing spots in the test photo, keep the one whose
 flat picture matches best. That spot tells us the shift.
+
+---
+
+## Q10. VERY simple version (no technical words)
+
+**Three words:**
+- **Middle** = the center point of a photo. All photos are the same size, so the middle is
+  always the same spot on the screen, pixel (209, 312). But WHAT is shown there can differ.
+- **Turned** = photo rotated, like turning a paper on a table.
+- **Shift / moved** = photo slid sideways or up/down, without turning.
+
+**Example:** a tiny city with a house, a tree, a car. Red dot = middle of each photo.
+- Original: dot is on the HOUSE.
+- Turned 90°: dot is STILL on the house (spinning doesn't move the center).
+- Moved left 45 px: dot is now on the TREE.
+
+**"Unrolling" = describing what you see around the dot, like a clock.**
+- Original (on house): 3 o'clock → tree, 7 o'clock → car.
+- Turned (on house): everything moved by the SAME number of hours → "turned 90°". Step 3 can do this ✅
+- Moved (on tree): a totally different list (things closer, farther, odd directions).
+  Can't compare → Step 3 fails ❌
+
+**Middle of which picture?** BOTH. Step 3 stands on the middle of the original AND the middle
+of the test photo, then compares the two clock lists.
+- only turned → both middles show the same thing (house) ✅
+- moved → middles show different things (house vs tree) ❌
+
+**How Step 4 helps:**
+1. Stand on the middle of the TEST photo (the tree). Write its clock list. Keep it.
+2. In the ORIGINAL, stand on many spots one by one, write a clock list at each.
+3. Compare each with the test photo's list.
+4. Best match = the spot in the original that is the tree.
+   Tree is 45 px right of the original's middle, but at the middle of the test photo
+   → the photo was moved 45 px LEFT = **the shift**.
+   At that spot the clock lists also give the turn and zoom (like Step 3).
+
+**In 4 lines:**
+- Step 1: make test photos we turned/zoomed/moved ourselves + write the answers.
+- Step 2: check that "turned" = "clock list moved by the same hours" (using the answers).
+- Step 3: computer finds how many hours everything moved → turn + zoom (only if not moved).
+- Step 4: computer searches the original for the spot matching the test's middle → shift (+ turn + zoom).

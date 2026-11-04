@@ -9,3 +9,5 @@
 - Ignore the blurry left part (very near the center) when matching.
 - Use the peak value as a "confidence" number: if peak < 0.1, say "not sure".
 - Make a test with a BIG shift (e.g. 100 px) to show Step 3 really fails without Step 4.
+- Make the search area bigger (±120 px) and test with a big shift (100 px).
+- Search spots between pixels (sub-pixel) to get the shift more exact.

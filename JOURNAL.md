@@ -123,3 +123,45 @@ into rotation angle and zoom.
 Step 2, what Step 3 does, does it find the center).
 
 **Next:** Step 4 – search for the right center to find the shift.
+
+## Step 4 – Find the shift by searching for the right center (2026-11-04)
+**Goal:** solve the shifted tests (test3/4/5) by finding WHERE the test photo's middle
+is in the original.
+
+**Did:** wrote `step4_find_shift.py` (the paper's algorithm, slide 11).
+1. Unroll the TEST photo around its middle (fixed). Test photo is used as the fixed one
+   because it is zoomed in, so its content surely exists in the original.
+2. In the ORIGINAL, try many standing spots (±60 px around the middle), unroll around each,
+   run phase correlation (Step 3) → peak + slide.
+3. Keep the spot with the highest peak.
+4. Slide → rotation + zoom. Spot → shift: shift = −zoom × rotate(spot − middle).
+- Looks 180 px around each spot (circle).
+- Coarse-to-fine (like the paper): every 4th pixel first (961 spots), then every pixel
+  ±4 px around the best (81 spots).
+
+**Results (all 5 CORRECT):**
+
+| Test | True (angle, zoom, shift) | Found | Angle err | Zoom err | Shift err | Peak |
+|---|---|---|---|---|---|---|
+| test1 | 30°, ×1.0, (0,0) | 30.00°, ×1.000, (0,0) | 0.00° | 0.00% | 0.0 px | 0.671 |
+| test2 | 0°, ×1.5, (0,0) | 0.02°, ×1.493, (0,0) | 0.02° | 0.47% | 0.0 px | 0.562 |
+| test3 | 45°, ×1.5, (20,−15) | 44.71°, ×1.504, (20.3,−15.9) | 0.29° | 0.28% | 0.9 px | 0.321 |
+| test4 | 135°, ×2.0, (−25,30) | 135.10°, ×1.961, (−23.5,29.2) | 0.10° | 1.93% | 1.7 px | 0.288 |
+| test5 | 90°, ×1.2, (10,10) | 89.87°, ×1.201, (9.6,9.6) | 0.13° | 0.05% | 0.6 px | 0.504 |
+
+Compared with Step 3 (shifted tests): angle error 1–2° → 0.1–0.3°, peak ~0.04 → 0.29–0.50
+(about 10× more sure). Time: 1.7 s per test on my MacBook Air.
+
+**Problems / surprises:**
+- Peaks are a bit lower than in Step 3 for test1/test2 (0.85 → 0.67), because now we only
+  look 180 px around the spot, not the whole picture. Still clearly correct.
+- I was very confused about "middle", "unrolling" and "shift" → wrote a very simple
+  explanation in `QUESTIONS_AND_ANSWERS.md` (Q10, house/tree/car example).
+
+**Limits:**
+- Spots are whole pixels only → shift error up to ~1–2 px. The optimizer (Step 6) can fix this.
+- Only searches ±60 px. A bigger shift would need a bigger search area (slower).
+- test4 (×2 zoom, 135°) is the hardest: lowest peak (0.288), biggest zoom error (1.93%).
+
+**Next:** Step 5 – use the found numbers to put the test photo back on top of the original
+and show they line up.
