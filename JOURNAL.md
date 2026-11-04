@@ -408,3 +408,12 @@ I may mention later. Folder: `experiments/zoom_fix/` (README there explains ever
 - Experiment: **×0.35 – ×5** (like the paper's "×4 in practice"). Price: ~60 s instead of ~10–20 s.
 - Still fails: ×0.25 (city too tiny) and ×6+ (test photo too blurry; would need a bigger photo).
 - Picture explaining why: `experiments/zoom_fix/why_zoom_fails.png`.
+
+## Step 13 – Presentation script and code guide for my teacher (2026-11-05)
+**Did:** a document (Claude Doc) with: the spoken script (what to say + what to show, ~5–7 min),
+the big idea explained simply with examples, each step with its results, the comparison with my
+classmate, the paper comparison and zoom limits, every script explained function by function,
+likely teacher questions with answers, and a demo checklist.
+Link: https://claude.ai/artifact/15uHsq92yXcfQCxybAuw4B
+**Next:** practise the script once out loud; ask Claude about anything I don't understand.
+
