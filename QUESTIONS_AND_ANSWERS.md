@@ -416,3 +416,18 @@ Different computers round numbers very slightly differently (e.g. B3: 0.027 px o
 0.044 px on Claude's computer). All verdicts (OK / BAD) are the same, so the conclusions do not
 change. When the optimizer gets LOST (optimizer alone), where it ends up is almost random,
 so those big numbers can differ a lot (2,037 vs 15,058 px) – both just mean "lost".
+
+## Q19. Is zooming in / out in the paper? How far does my method work?
+**The paper:** yes, zoom is the main point. It says log-polar handles up to **×10** zoom, and
+"in practice" up to **×4**. Its examples: ×4 (mandrill) and 0.469 (= ×2.13 the other way round).
+It doesn't test "zoom out" separately, because zoom out = zoom in with the two pictures swapped.
+
+**My method (tested in `step8_zoom_limits.py`):** works from **×0.5 to ×3**. Fails at ×4 and more,
+and at ×0.35 and less. So for big zoom the paper's claim is better than my method right now.
+
+**Why (simple):** imagine finding a small close-up photo of ONE window in a photo of the whole city.
+- My rough search first makes the city photo 4× smaller to be fast. At ×4 zoom the window
+  becomes ~3 pixels – you can't recognise it any more, so the right spot never makes the short list.
+- At ×6+ the close-up itself is a blurry blown-up piece of my small photo (a real camera zoom
+  would show real detail).
+- Zoom out ×0.25: the test photo is 94% black with a tiny city in the middle.

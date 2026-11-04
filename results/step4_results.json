@@ -57,7 +57,7 @@
     ],
     "shift_error_px": 0.74,
     "correct": true,
-    "seconds": 3.03
+    "seconds": 2.83
   },
   {
     "name": "test3",
@@ -87,7 +87,7 @@
     ],
     "shift_error_px": 0.81,
     "correct": true,
-    "seconds": 2.64
+    "seconds": 2.85
   },
   {
     "name": "test4",
@@ -117,7 +117,7 @@
     ],
     "shift_error_px": 0.7,
     "correct": true,
-    "seconds": 2.9
+    "seconds": 2.87
   },
   {
     "name": "test5",
@@ -147,6 +147,6 @@
     ],
     "shift_error_px": 0.44,
     "correct": true,
-    "seconds": 3.21
+    "seconds": 2.94
   }
 ]

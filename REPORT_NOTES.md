@@ -192,6 +192,10 @@ Use `results/step9_old_vs_new.png` and `results/step7_hard_tests.png` as figures
 - Low-detail areas (sky) are hard to match.
 - Shift found to whole pixels in Step 4 (sub-pixel only after Step 6).
 
+- **Zoom range (Step 8 test):** works ×0.5 – ×3; fails at ×4+ (rough search on the 4× smaller copy
+  loses the spot; ≥ ×6 the test photo is too blurry because my photo is small) and at ×0.35 or less
+  (test photo mostly black). The paper claims up to ×10 (×4 in practice) → weaker than the paper here.
+
 ## 9. Conclusion (1 paragraph)
 
 Log-polar turns rotation and zoom into simple slides, which phase correlation finds

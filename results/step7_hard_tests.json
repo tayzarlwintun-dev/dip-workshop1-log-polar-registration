@@ -20,8 +20,8 @@
       ]
     ],
     "pixels_off_after_search": 2.249,
-    "pixels_off_after_optimizer": 0.0087,
-    "seconds": 10.84,
+    "pixels_off_after_optimizer": 0.0098,
+    "seconds": 4.27,
     "practically_perfect": true
   },
   {
@@ -45,8 +45,8 @@
       ]
     ],
     "pixels_off_after_search": 2.743,
-    "pixels_off_after_optimizer": 0.0028,
-    "seconds": 11.0,
+    "pixels_off_after_optimizer": 0.004,
+    "seconds": 3.97,
     "practically_perfect": true
   },
   {
@@ -70,8 +70,8 @@
       ]
     ],
     "pixels_off_after_search": 2.961,
-    "pixels_off_after_optimizer": 0.0021,
-    "seconds": 9.63,
+    "pixels_off_after_optimizer": 0.002,
+    "seconds": 3.53,
     "practically_perfect": true
   },
   {
@@ -95,8 +95,8 @@
       ]
     ],
     "pixels_off_after_search": 3.922,
-    "pixels_off_after_optimizer": 0.0444,
-    "seconds": 19.28,
+    "pixels_off_after_optimizer": 0.0266,
+    "seconds": 16.14,
     "practically_perfect": true
   },
   {
@@ -120,8 +120,8 @@
       ]
     ],
     "pixels_off_after_search": 1.703,
-    "pixels_off_after_optimizer": 0.0021,
-    "seconds": 8.74,
+    "pixels_off_after_optimizer": 0.0019,
+    "seconds": 4.06,
     "practically_perfect": true
   },
   {
@@ -145,8 +145,8 @@
       ]
     ],
     "pixels_off_after_search": 0.929,
-    "pixels_off_after_optimizer": 0.0016,
-    "seconds": 8.8,
+    "pixels_off_after_optimizer": 0.0015,
+    "seconds": 3.59,
     "practically_perfect": true
   },
   {
@@ -170,8 +170,8 @@
       ]
     ],
     "pixels_off_after_search": 1.955,
-    "pixels_off_after_optimizer": 0.0031,
-    "seconds": 8.6,
+    "pixels_off_after_optimizer": 0.0028,
+    "seconds": 3.77,
     "practically_perfect": true
   },
   {
@@ -196,7 +196,7 @@
     ],
     "pixels_off_after_search": 0.727,
     "pixels_off_after_optimizer": 0.0016,
-    "seconds": 7.96,
+    "seconds": 3.25,
     "practically_perfect": true
   }
 ]

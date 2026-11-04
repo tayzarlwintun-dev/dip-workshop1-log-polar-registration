@@ -37,3 +37,7 @@
 | 2026-11-04 | 10 | My Mac run of Steps 4–6 + Step 9 | same as cloud | same verdicts; Step 4 2.6–3.2 s per test | yes | tiny rounding differences only |
 | 2026-11-04 | 10 | Clean final folder, Steps 1–7 run on their own | all work | all work, 5/5 + 8/8 under 0.1 px | yes | no friend code, no version 1 |
 | 2026-11-04 | 10 | Step 7 figure titles | readable | bottom titles touched top pictures | no → fixed | more space between rows |
+| 2026-11-04 | 11 | Zoom in ×4, ×5, ×6, ×8, ×10 (turn 40°) | paper: up to ×4 (×10) works | all FAILED (145–10,818 px off) | no | rough search on 4× smaller copy loses the spot; ≥ ×6 too blurry |
+| 2026-11-04 | 11 | Zoom out ×0.75, ×0.5 | works | 0.004 / 0.018 px | yes | |
+| 2026-11-04 | 11 | Zoom out ×0.35, ×0.25 | ? | FAILED | no | test photo only 6–12% filled |
+| 2026-11-04 | 11 | ×4: full-size comparison at the true spot | correct zoom | zoom read ×3.89, peak 0.088 > 0.042 | yes | proves the rough search is the weak part |

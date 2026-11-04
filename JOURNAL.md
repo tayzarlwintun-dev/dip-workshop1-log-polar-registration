@@ -352,3 +352,37 @@ average 4.7 s (old 4.4 s, friend 11.6 s).
 - Ran Steps 1–7 from the clean folder: all work, same results as before.
 
 **Next:** push to a private GitHub repo (tayzarlwintun-dev); write the report.
+
+## Step 11 – How far can we zoom? (zoom limits test) (2026-11-04)
+**Question:** zoom out and zoom above ×3 were not tested. Is this in the paper?
+
+**The paper says** (`information/Image registration using log-polar transform.pdf`):
+- log-polar can recover up to **ten-fold (×10)** zoom; "in practice we don't expect scale changes
+  beyond factors of four" (×4);
+- the optimizer alone needs zoom within ×2 and turn within 45°;
+- examples: ×4 + 45° (Fig. 2, mandrill) and scale 0.469 (= ×2.13 the other way) + 201° (Fig. 3).
+- The paper does not test "zoom out" separately: zoom out is the same as zoom in with the two
+  pictures swapped (their 0.469 is exactly that).
+
+**Did:** new `step8_zoom_limits.py`: turn 40°, small move, zoom ×4, 5, 6, 8, 10 and ×0.75, 0.5, 0.35, 0.25.
+
+**Results:**
+| Zoom | ×4 | ×5 | ×6 | ×8 | ×10 | ×0.75 | ×0.5 | ×0.35 | ×0.25 |
+|---|---|---|---|---|---|---|---|---|---|
+| Result | FAILED | FAILED | FAILED | FAILED | FAILED | **0.004 px** | **0.018 px** | FAILED | FAILED |
+
+So my final method works for zoom **×0.5 to ×3** (tested), NOT for ×4 or more, and NOT for ×0.35 or less.
+The paper says ×4 should work → my method is weaker than the paper here.
+
+**Why ×4 fails (checked):** the EXACT full-size comparison at the true spot still works at ×4
+(zoom read ×3.89, peak 0.088 vs 0.042 for the wrong spot), but the ROUGH search on the 4× smaller
+copies never puts the true spot on the short list (closest proposed spot 133 px away).
+Reason: at zoom ×4 the test photo's look-circle covers only ~45 px of the original; after making
+the original 4× smaller that is ~11 px – almost nothing to compare.
+At ×6 and more even the full-size comparison fails: the test photo is a small piece (≤ 70 × 105 px)
+of my 418 × 625 photo blown up, so it is very blurry (no real detail, unlike a real camera zoom).
+
+**Why zoom out ≤ ×0.35 fails:** the test photo is mostly black (only 6–12% filled); the whole city
+is tiny inside the look-circle.
+
+**Ideas to fix (not done yet):** see `IDEAS.md`.

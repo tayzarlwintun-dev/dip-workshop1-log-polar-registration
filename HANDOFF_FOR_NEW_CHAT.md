@@ -51,6 +51,7 @@ graphify is installed with a git hook (output `graphify-out/`, ignored in git).
 | `step5_align_and_overlay.py` | puts test photos back (`images/aligned/`), red/cyan overlay before vs after |
 | `step6_optimizer.py` | bonus: Levenberg–Marquardt fine-tuning of 6 affine knobs (SSD), like the paper (v2: blur 4→2→1→0.5) |
 | `step7_hard_tests.py` | 8 hard tests (B0–B3 paper-style, C1–C4 extra) with final Steps 4 + 6 |
+| `step8_zoom_limits.py` | zoom limits: works ×0.5–×3; fails ×4+ (rough search loses spot) and ×0.35- |
 | (git history only) | `step8_compare_with_friend.py`, `step9_old_vs_new.py`, version 1 of Step 4 |
 | `COMPARISON_WITH_FRIEND.md`, `IMPROVEMENTS.md` | comparison and version-2 explanation |
 | `results/*.json`, `results/*.png` | all numbers and figures |
