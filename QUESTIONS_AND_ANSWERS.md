@@ -442,3 +442,37 @@ Finding a close-up of ONE building in a photo of the whole city:
 - **Zoom out ×0.35 and less:** the test photo is mostly black with a tiny city inside.
   (Fix tested: swap the photos and look for the city photo inside the test photo.)
 Picture: `experiments/zoom_fix/why_zoom_fails.png`.
+
+## Q21. Why do we need log-polar? What is "sliding"? (with picture)
+Picture: `explanations/log_polar_explained.png` (make it again: `python explanations/make_log_polar_explained.py`).
+
+**Sliding** = moving a whole picture in one direction, every pixel by the SAME amount
+(like sliding a sheet of paper across the table). A slide is easy to find: try every slide, keep the best match.
+
+**The problem:** turning or zooming a photo is NOT a slide. When you turn a photo, pixels near the
+middle move a little, pixels at the edge move a lot, in different directions. So you can't just slide
+photo 2 back over photo 1.
+
+**The clock picture (log-polar)** = re-draw the photo as seen from the middle:
+- each ROW = one direction (360 rows = 360 degrees, like the hand of a clock going around),
+- each COLUMN = how far from the middle (on a log ruler: 1, 2, 4, 8, 16 … are equally spaced).
+
+**Why it helps:**
+- Turn the photo 45° → everything is now 45° further around the clock → the whole clock picture
+  slides 45 rows (pie example, row 1 of the picture: same colour stripes, just one stripe lower).
+- Zoom the photo ×2 → everything is twice as far from the middle → on the log ruler "twice as far"
+  is always the same step → the whole clock picture slides right by one step (rings example, row 2).
+- My photo: test1 turned 30° → the tower moves from row 307 to row 277 (30 rows);
+  test2 zoomed ×1.5 → the tower moves from column 229 to 247 (17.5 columns).
+
+So log-polar turns the HARD problem (turn + zoom) into the EASY problem (find a slide).
+How many rows it slid = the turn; how many columns = the zoom.
+Why the log? Without it, zoom would STRETCH the stripes (near ones a little, far ones a lot) instead
+of sliding them. The log makes every "×2" the same width, so a zoom becomes a slide.
+
+**Script parts 3 and 4 in one sentence each:**
+- Part 3: the clock picture turns a turn into a slide down and a zoom into a slide right.
+- Part 4: phase correlation tries every slide at once and finds the best one (test1: 30 rows = 30°;
+  test2: 17.1 columns = ×1.487). For moved photos (test3–5) it fails, because the middle of the test
+  photo shows a different place, so the two clock pictures are of different things.
+

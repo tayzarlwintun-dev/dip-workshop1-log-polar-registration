@@ -1,79 +1,79 @@
 [
   {
     "zoom": 0.25,
-    "main_pixels_off": 189.984,
-    "fixed_pixels_off": 174.9166,
-    "main_seconds": 20.5,
-    "fixed_seconds": 63.0
+    "main_pixels_off": 190.07,
+    "fixed_pixels_off": 177.1132,
+    "main_seconds": 8.6,
+    "fixed_seconds": 23.8
   },
   {
     "zoom": 0.35,
-    "main_pixels_off": 11105.9823,
-    "fixed_pixels_off": 0.0686,
-    "main_seconds": 55.8,
-    "fixed_seconds": 65.9
+    "main_pixels_off": 11106.9789,
+    "fixed_pixels_off": 0.0696,
+    "main_seconds": 23.3,
+    "fixed_seconds": 23.9
   },
   {
     "zoom": 0.5,
-    "main_pixels_off": 0.0181,
-    "fixed_pixels_off": 0.0174,
-    "main_seconds": 12.3,
-    "fixed_seconds": 60.7
+    "main_pixels_off": 0.0169,
+    "fixed_pixels_off": 0.0182,
+    "main_seconds": 4.8,
+    "fixed_seconds": 21.3
   },
   {
     "zoom": 0.75,
-    "main_pixels_off": 0.0037,
-    "fixed_pixels_off": 0.0039,
-    "main_seconds": 10.8,
-    "fixed_seconds": 64.0
+    "main_pixels_off": 0.0036,
+    "fixed_pixels_off": 0.0038,
+    "main_seconds": 4.1,
+    "fixed_seconds": 21.2
   },
   {
     "zoom": 2,
-    "main_pixels_off": 0.0019,
-    "fixed_pixels_off": 0.0017,
-    "main_seconds": 9.7,
-    "fixed_seconds": 62.8
+    "main_pixels_off": 0.0014,
+    "fixed_pixels_off": 0.0018,
+    "main_seconds": 3.7,
+    "fixed_seconds": 22.3
   },
   {
     "zoom": 3,
-    "main_pixels_off": 403.8669,
-    "fixed_pixels_off": 0.0041,
-    "main_seconds": 13.4,
-    "fixed_seconds": 60.2
+    "main_pixels_off": 403.9847,
+    "fixed_pixels_off": 0.0036,
+    "main_seconds": 6.7,
+    "fixed_seconds": 21.0
   },
   {
     "zoom": 4,
-    "main_pixels_off": 342.889,
-    "fixed_pixels_off": 0.0024,
-    "main_seconds": 16.9,
-    "fixed_seconds": 64.5
+    "main_pixels_off": 342.9075,
+    "fixed_pixels_off": 0.0021,
+    "main_seconds": 7.1,
+    "fixed_seconds": 26.3
   },
   {
     "zoom": 5,
-    "main_pixels_off": 10818.228,
-    "fixed_pixels_off": 0.0342,
-    "main_seconds": 70.6,
-    "fixed_seconds": 62.7
+    "main_pixels_off": 12589.8751,
+    "fixed_pixels_off": 0.0269,
+    "main_seconds": 59.0,
+    "fixed_seconds": 21.5
   },
   {
     "zoom": 6,
-    "main_pixels_off": 144.8429,
-    "fixed_pixels_off": 285.5469,
-    "main_seconds": 16.4,
-    "fixed_seconds": 62.3
+    "main_pixels_off": 143.973,
+    "fixed_pixels_off": 287.5704,
+    "main_seconds": 5.7,
+    "fixed_seconds": 22.2
   },
   {
     "zoom": 8,
-    "main_pixels_off": 243.2595,
-    "fixed_pixels_off": 361.9962,
-    "main_seconds": 28.5,
-    "fixed_seconds": 69.7
+    "main_pixels_off": 243.3437,
+    "fixed_pixels_off": 360.6856,
+    "main_seconds": 16.3,
+    "fixed_seconds": 43.1
   },
   {
     "zoom": 10,
-    "main_pixels_off": 293.1496,
-    "fixed_pixels_off": 182.6819,
-    "main_seconds": 14.1,
-    "fixed_seconds": 63.6
+    "main_pixels_off": 292.1084,
+    "fixed_pixels_off": 182.6858,
+    "main_seconds": 6.8,
+    "fixed_seconds": 24.2
   }
 ]
