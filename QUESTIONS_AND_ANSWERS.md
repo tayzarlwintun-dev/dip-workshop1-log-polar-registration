@@ -241,3 +241,110 @@ of the test photo, then compares the two clock lists.
 - Step 2: check that "turned" = "clock list moved by the same hours" (using the answers).
 - Step 3: computer finds how many hours everything moved → turn + zoom (only if not moved).
 - Step 4: computer searches the original for the spot matching the test's middle → shift (+ turn + zoom).
+
+---
+
+## Q11. Checking my understanding (Steps 2–4)
+
+**Words:** Turned = rotated (spun). Zoomed = bigger/smaller. Shifted = MOVED (slid). Moved and shifted are the same.
+
+- **Step 3 finds turned + zoomed, not shifted — why?** It stands on the middle of both photos.
+  Shifted photo → middles show different things (house vs tree) → no match. ✅ correct
+- **Step 4 finds turned + zoomed + shifted, almost correct?** Yes. Errors: turn < 0.3°,
+  zoom < 2%, shift < 2 px. ✅ correct
+- **Is Step 4 only searching for the middle?** No. It searches for the MATCHING SPOT and runs
+  Step 3 at every spot. Best spot → where it is = shift; Step 3 answer there = turn + zoom.
+  **Step 4 = Step 3 + searching for the right spot.**
+- **If we find the spot, do we know if it was shifted?** Yes. Best spot = exact middle → not
+  shifted (test1, test2). Best spot elsewhere → shifted, distance = how much (test3/4/5).
+
+**Step 2 pictures:**
+- `step2_log_polar.png` – "log polar" = official name for the CLOCK-LIST picture.
+  Top row: normal photos. Bottom row: clock-list pictures.
+  Going down (0→359) = clock direction. Going right = distance from the middle (left close, right far).
+- `step2_slide_check.png` – test that "turning = sliding the clock-list picture".
+  Left: original's clock-list. Middle: same, slid by the expected amount (from the answer key).
+  Right: test1's real clock-list. Middle and right look the same (difference 2.0) → the idea works.
+  Step 2 found nothing by itself; it only PROVED the trick so Step 3 can use it.
+
+**One line each:**
+- Step 2: prove "turned photo" = "slid clock-list picture" (using answers).
+- Step 3: find the slide by itself → turned + zoomed (fails if shifted).
+- Step 4: Step 3 at many spots, keep the best → turned + zoomed + shifted.
+
+---
+
+## Q12. Slide, 0–359, slide check, and why log-polar (simple)
+
+(Seen with an interactive demo: little city with tree, car, sun, house; photo A = original,
+photo B = turned; C = clock picture of A, D = C slid down, E = clock picture of B.)
+
+**Why 0 to 359?** A full circle = 360 degrees (0°…359°, then back to 0°, like a clock after 11:59).
+The clock picture has one row per direction around the dot:
+0° = looking right, 90° = looking down, 180° = looking left, 270° = looking up.
+
+**What is "slide"?** Move the whole picture down without changing it. What falls off the bottom
+comes back at the top. Example, turn 90°: the tree was at row 0° (right of the dot), after turning
+it is at row 90° (below the dot). Tree, car, sun, house ALL move down 90° = a slide.
+
+**What is the "slide check"?** A test that turning = sliding:
+1. C = clock picture of the original.
+2. Slide C down by the turn amount → D.
+3. E = clock picture of the turned photo.
+4. D and E look exactly the same → turning really is sliding ✅
+This is what "middle and right should look the same" means in `step2_slide_check.png`.
+
+**Why log-polar? Can't we use normal pictures?**
+Put normal photos on top of each other: a turned photo gives DOUBLE shapes. Sliding a normal
+photo can never fix a turn. With normal pictures the computer would have to try every angle
+(1°…359°) × every zoom = thousands of tries (slow).
+In the clock picture, turn = slide down, zoom = slide right. Finding a slide is fast and easy.
+
+**Can't we just find the middle in normal pictures?** That only gives the SHIFT, not the turn or
+zoom. Step 4 does both: search for the matching spot (shift) + clock pictures there (turn + zoom).
+
+---
+
+## Q13. Clock picture and sliding – the 8-box version (simplest)
+
+(Seen with a demo: 8 things around a dot – tree, road, car, grass, sun, sky, house, cloud.)
+
+**Clock picture** = stand on the dot, look all the way around, write what you see in each direction,
+then put it in a ROW:
+`0° tree | 45° road | 90° car | 135° grass | 180° sun | 225° sky | 270° house | 315° cloud`
+(Real program: 360 directions instead of 8, and each direction also shows near and far.)
+
+**Sliding** = turn the photo 45° → in the row, EVERY box moves 1 place to the right
+(the last one wraps around to the start). Same order, just moved along.
+`0° cloud | 45° tree | 90° road | 135° car | ...`
+Turn 90° → every box moves 2 places.
+- Turning = what happens in the normal photo.
+- Sliding = what you see in the clock picture. Two views of the same thing.
+
+**Why we care:** the computer is bad at "how much was this photo turned?" but very good at
+"how many places did the boxes move?" – try 0, 1, 2... places, see which matches.
+Moved 2 places → turned 2 × 45° = 90°. That is Step 3.
+
+**Why check the slide (Step 2)?** Test a trick once where you KNOW the answer before trusting it –
+like testing a new calculator with 2 + 2. We knew test1 was turned 30°, moved the original's
+clock picture 30 places, it matched → trick works → Step 3 can use it.
+
+---
+
+## Q14. My summary of Steps 2–4 (checked)
+
+- **Step 2** – only a test to prove "turning = sliding". The final program does not need it,
+  but keep it for the report: it is the proof that the method is correct. ✅
+- **Step 3** – finds turn + zoom, not the shift. ✅
+- **Step 4** – tries every SPOT in the original photo near its middle (±60 px), not every row/column
+  of the clock picture. At each spot it uses the Step 3 method and gets a score. Best score =
+  where the TEST photo's middle is in the original.
+- **`step4_search_maps.png`:** `+` = middle of the original (209, 312). Circle = best spot found.
+  - Circle on the + → not moved (test1, test2).
+  - Circle away from the + → moved; the distance (adjusted for turn and zoom) = the shift.
+  - Example test3: + (209, 312), circle (192, 310) → 17 px left, 2 px up in the original.
+    Converted with turn 45° and zoom ×1.5 → shift (20, −16). True: (20, −15). ✅
+
+**Summary:** Step 4 tries many spots in the original, uses Step 3 at each, keeps the best spot
+(circle). Distance from + to circle (adjusted for turn and zoom) = shift; Step 3 at that spot =
+turn and zoom.
