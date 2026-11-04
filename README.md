@@ -28,6 +28,7 @@ automatically, then put picture 2 back on top of picture 1.
 - `IDEAS.md` – ideas for later
 - `QUESTIONS_AND_ANSWERS.md` – my questions with simple answers
 - `REPORT_NOTES.md` – everything for the report (method, results tables, figures, limits)
+- `HANDOFF_FOR_NEW_CHAT.md` – summary for a new Claude chat (read first)
 
 ## How to run
 ```bash
