@@ -1,0 +1,22 @@
+# Files graphify should NOT read (same idea as .gitignore)
+
+# Python virtual environment (libraries, not my code)
+.venv/
+__pycache__/
+*.pyc
+
+# Pictures and result data (not code)
+images/
+results/
+
+# graphify's own output
+graphify-out/
+
+# Git and system files
+.git/
+.DS_Store
+.vscode/
+
+# Secrets (none yet, but just in case)
+.env
+*.key

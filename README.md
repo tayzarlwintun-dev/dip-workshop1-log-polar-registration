@@ -38,3 +38,5 @@ python step3_find_rotation_scale.py  # find rotation + zoom by itself
 
 ## Tools
 Python 3.14, OpenCV, NumPy, Matplotlib, SciPy, VS Code, macOS.
+Optional: graphify (code map for AI tools). Settings in `.graphifyignore`;
+its output folder `graphify-out/` is not saved in git.
