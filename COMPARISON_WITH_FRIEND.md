@@ -7,6 +7,10 @@ Test script: `step8_compare_with_friend.py` → `results/step8_comparison.json` 
 
 ---
 
+> **Update (Step 9):** I took my friend's ideas into my method (version 2). The new version
+> works on all 13 tests (old 5/13, friend 10/13), including B0 where both of us failed.
+> See `IMPROVEMENTS.md`. The numbers below are for my OLD version 1.
+
 ## 1. The short answer
 
 **We both solved the same problem with the same big idea** (log-polar to find turn + zoom,

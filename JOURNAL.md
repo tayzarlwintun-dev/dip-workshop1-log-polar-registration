@@ -293,3 +293,42 @@ All test angles are whole degrees (helps whole-step methods).
 
 **Next:** decide if I want to copy the friend's ideas (bigger search, more blur steps,
 "optimizer alone fails" test, noise + stretch tests), then write the report.
+
+## Step 9 – Improve my method with my friend's ideas (version 2) (2026-11-04)
+**Goal:** make my method work for big shifts too, combine the best of my friend's method and
+mine, and check against the paper. Full explanation: `IMPROVEMENTS.md`.
+
+**Changed:**
+- `step4_find_shift.py` (version 2):
+  A. search the WHOLE original (not ±60 px);
+  B. rough search on a 4× smaller copy (90×64 clock pictures, batched SciPy FFT), then every
+     pixel ±5 px with half-size clock pictures (180×128), then ±1 px full size (360×256);
+  C. two judges make the short list: cross-correlation (friend's) + phase correlation (mine),
+     6 spots each;
+  D. black/outside filled with average gray + 200 px gray frame;
+  E. two anchors (middle + most detailed spot), keep the answer that REALLY matches best
+     after putting the photo back.
+  Old version kept as `find_turn_zoom_shift_OLD`.
+- `step6_optimizer.py`: blur steps 4 → 2 → 1 → 0.5 (old 2 → 1, kept as `OLD_BLUR_STEPS`).
+- `step8_compare_with_friend.py`: now explicitly uses the OLD version (so its numbers stay true).
+- New `step9_old_vs_new.py`: old vs new vs friend on 13 tests (my 5 + B0–B3 friend-style +
+  C1–C4 extra: zoom up to ×3, shifts 90–190 px) + "optimizer alone" test.
+
+**Results:**
+- Practically perfect (< 0.1 px): old 5/13, **new 13/13**, friend 10/13. New worst: 0.044 px (B3).
+- My 5 tests with the new pipeline: Step 4 0.39–1.66 px → Step 6 0.00–0.02 px, all CORRECT.
+- Search time (cloud computer): old 4.1 s, new 8.4 s, friend 11.3 s per test.
+- Optimizer alone (start "no change") gets lost: test1 42 px, test4 15,058 px, B1 285 px, C2 150 px
+  → confirms the paper's main point.
+- Friend fails B0, C1, C3: the original's middle is not visible or too close to the test photo's edge.
+
+**Problems / fixes on the way:** (details in `IMPROVEMENTS.md` section 3)
+phase correlation alone fooled by sky in the rough search; gray fill alone not enough;
+"most detail" anchor alone broke B1/C1 (repeating windows); second anchor wrongly skipped
+(test4); exact search ±4 px too small (test4); every-2nd-pixel search missed the 1-px-wide
+needle at zoom ×3 (C1); NumPy FFT too slow → SciPy rfft2.
+
+**Limits:** ~2× slower than old; Step 4 alone a bit less exact on easy tests (test1 0.01 → 0.39 px);
+synthetic tests of one photo only; zoom < 1 and > 3 not tested; settings chosen by hand.
+
+**Next:** run the new steps on my Mac and check the times; update the report from `REPORT_NOTES.md`.

@@ -25,3 +25,12 @@
 | 2026-11-04 | 8 | Big shift, original's middle outside test photo (first try) | friend works | both fail | not fair → changed | friend needs the original's middle visible |
 | 2026-11-04 | 8 | B1 friend-style (zoom 2.13, 201°, stretch), small shift | both < 0.1 px | mine 1.15 px, friend 0.001 px | partly | my optimizer: too little blur; blur 4,2,1,0.5 → 0.004 px |
 | 2026-11-04 | 8 | B2/B3 big shift (~100 px) | mine fails, friend works | mine 303 / 1449 px, friend 0.001 / 0.009 px | expected | my search box is only ±60 px |
+| 2026-11-04 | 9 | Rough search with phase correlation only (whole picture) | B2 found | B2 fails, true spot ranked ~2000th | no → fixed | sky/edges fool it → add cross-correlation judge |
+| 2026-11-04 | 9 | Gray fill of black areas | B2 fixed | still fails | no | not the cause alone (kept anyway) |
+| 2026-11-04 | 9 | Rough search with cross-correlation only | all found | B1, B3 fail | no → fixed | → 2 judges, 6 spots each |
+| 2026-11-04 | 9 | Anchor = most detailed spot only | B3 better | B3 0.044 px but B1, C1 broke | no → fixed | repeating windows → 2 anchors + real-match check |
+| 2026-11-04 | 9 | 2 anchors, skip if < 30 px apart | test4 OK | test4 failed | no → fixed | always try both |
+| 2026-11-04 | 9 | Exact search every 2nd pixel | faster, same result | C1 (zoom ×3) failed | no → fixed | needle 1 px wide → every pixel, half-size clock |
+| 2026-11-04 | 9 | New Step 4+6 on my 5 tests | all correct | Step 6: 0.00–0.02 px | yes | Step 4 alone 0.39–1.66 px |
+| 2026-11-04 | 9 | Old vs new vs friend, 13 tests | new best | old 5/13, new 13/13, friend 10/13 | yes | new worst 0.044 px (B3) |
+| 2026-11-04 | 9 | Optimizer alone from "no change" | gets lost | 42–15,058 px off | yes (expected) | paper's main point |

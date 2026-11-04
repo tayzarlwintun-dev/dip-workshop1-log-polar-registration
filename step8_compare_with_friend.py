@@ -3,6 +3,7 @@ Step 8 - Compare my method with my friend's method on the SAME pictures.
 
 Part A: run my FRIEND's code (friend_version/registration.py) on MY 5 test photos.
         -> Does their method find the right turn, zoom and shift? How fast?
+("My code" here = my OLD version 1. Step 9 tests the improved version 2.)
 Part B: run MY code (Step 4 + Step 6) on a FRIEND-STYLE test:
         a big shift (the middle of the test photo is far from the middle of the
         original) + a small "stretch" (shear) like in the paper's Fig. 3.
@@ -53,27 +54,18 @@ def angle_err(a, b):
 
 
 def my_method(original, test):
-    """My Step 4 (center search) + Step 6 (optimizer). Returns matrices + time."""
+    """My OLD method (version 1, before the improvements of Step 9):
+    Step 4 search only +-60 px around the middle + Step 6 with blur 2 -> 1.
+    Kept fixed so the numbers in COMPARISON_WITH_FRIEND.md stay true."""
     h, w = original.shape
-    middle = (w / 2, h / 2)
     start = time.time()
-    B = my4.spectrum(my4.log_polar_at(test, middle))
-    coarse = [(middle[0] + ox, middle[1] + oy)
-              for oy in range(-my4.SEARCH, my4.SEARCH + 1, my4.COARSE_STEP)
-              for ox in range(-my4.SEARCH, my4.SEARCH + 1, my4.COARSE_STEP)]
-    best, _ = my4.search(original, B, coarse)
-    fine = [(best["x"] + ox, best["y"] + oy)
-            for oy in range(-my4.FINE_RANGE, my4.FINE_RANGE + 1)
-            for ox in range(-my4.FINE_RANGE, my4.FINE_RANGE + 1)]
-    best, _ = my4.search(original, B, fine)
-    angle, scale = my4.slide_to_rotation_scale(best["dx"], best["dy"])
-    shift = my4.shift_from_spot((best["x"], best["y"]), middle, angle, scale)
-    m4 = my6.make_matrix(w, h, angle, scale, shift[0], shift[1])
+    r = my4.find_turn_zoom_shift_OLD(original, test)
+    m4 = my6.make_matrix(w, h, r["angle"], r["scale"], r["shift"][0], r["shift"][1])
     t4 = time.time() - start
     start = time.time()
-    m6, _ = my6.optimize(original, test, m4)
+    m6, _ = my6.optimize(original, test, m4, blur_steps=my6.OLD_BLUR_STEPS)
     t6 = time.time() - start
-    return m4, t4, m6, t6, best["peak"]
+    return m4, t4, m6, t6, r["peak"]
 
 
 def friend_method(original, test):

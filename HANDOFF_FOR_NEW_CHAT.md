@@ -44,7 +44,11 @@ graphify is installed with a git hook (output `graphify-out/`, ignored in git).
 | `step3_find_rotation_scale.py` | phase correlation finds the slide → turn + zoom (only works without shift) |
 | `step4_find_shift.py` | searches many centers in the original, keeps best peak → turn + zoom + shift |
 | `step5_align_and_overlay.py` | puts test photos back (`images/aligned/`), red/cyan overlay before vs after |
-| `step6_optimizer.py` | bonus: Levenberg–Marquardt fine-tuning of 6 affine knobs (SSD), like the paper |
+| `step6_optimizer.py` | bonus: Levenberg–Marquardt fine-tuning of 6 affine knobs (SSD), like the paper (v2: blur 4→2→1→0.5) |
+| `step8_compare_with_friend.py` | my OLD method (v1) vs friend's, on my tests + friend-style tests |
+| `step9_old_vs_new.py` | old (v1) vs new (v2) vs friend on 13 tests |
+| `friend_version/` | copy of friend's `registration.py`, `demo_tools.py` |
+| `COMPARISON_WITH_FRIEND.md`, `IMPROVEMENTS.md` | comparison and version-2 explanation |
 | `results/*.json`, `results/*.png` | all numbers and figures |
 | `REPORT_NOTES.md` | report skeleton with all tables, figures, limits, conclusion |
 
@@ -78,7 +82,15 @@ counter-clockwise. Shift +x = right, +y = down.
   brightness difference, blur σ = 2 then 1, exact bilinear sampling with
   `scipy.ndimage.map_coordinates`, outer frame trimmed by 6 px.
 
-## 6. Final results
+## 5b. Version 2 of Step 4 (current, Step 9)
+Whole-picture search: gray-fill + 200 px frame; rough search on 4× smaller copy (90×64 log-polar,
+batched scipy rfft2), two judges (cross-correlation + phase correlation) × 6 spots; every pixel
+±5 px with 180×128 log-polar; final ±1 px with 360×256. Two anchors (test middle + most-detailed
+spot), keep the one whose put-back picture matches best (NCC). shift = anchor − middle − L(spot − middle).
+Old version kept as `find_turn_zoom_shift_OLD`. Results v2: 13/13 tests < 0.1 px (old 5/13,
+friend 10/13); ~8 s per test on cloud (old ~4 s). Table below = version 1.
+
+## 6. Final results (version 1)
 
 | Test | Step 4 found (turn, zoom, shift) | Pixels off Step 4 | Pixels off Step 6 |
 |---|---|---|---|

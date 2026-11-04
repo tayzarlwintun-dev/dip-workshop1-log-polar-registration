@@ -20,6 +20,7 @@ automatically, then put picture 2 back on top of picture 1.
 | 6 | Optimizer fine-tuning (bonus) | done |
 | 7 | Report notes | done |
 | 8 | Compare with my friend's work | done |
+| 9 | Improve my method with my friend's ideas (version 2) | done |
 
 ## Folder layout
 - `images/` – input photos (`original.jpg`)
@@ -30,6 +31,7 @@ automatically, then put picture 2 back on top of picture 1.
 - `QUESTIONS_AND_ANSWERS.md` – my questions with simple answers
 - `REPORT_NOTES.md` – everything for the report (method, results tables, figures, limits)
 - `COMPARISON_WITH_FRIEND.md` – my method vs my friend's (same / different, fair tests)
+- `IMPROVEMENTS.md` – what changed in version 2, old vs new vs friend vs paper
 - `friend_version/` – copy of my friend's code (used by Step 8)
 - `HANDOFF_FOR_NEW_CHAT.md` – summary for a new Claude chat (read first)
 
@@ -39,10 +41,11 @@ source .venv/bin/activate
 python step1_make_test_images.py   # make test pictures
 python step2_log_polar.py          # log-polar pictures + slide check
 python step3_find_rotation_scale.py  # find rotation + zoom by itself
-python step4_find_shift.py           # also find the shift (search for the center)
+python step4_find_shift.py           # also find the shift (search the whole picture, version 2)
 python step5_align_and_overlay.py    # put test photos back + red/cyan overlay
 python step6_optimizer.py            # fine-tune with Levenberg-Marquardt (bonus)
-python step8_compare_with_friend.py  # compare with my friend's method (~2-3 min)
+python step8_compare_with_friend.py  # my OLD method vs my friend's (~2-3 min)
+python step9_old_vs_new.py           # old vs new vs friend, 13 tests (~10-15 min)
 ```
 
 ## Tools

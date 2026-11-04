@@ -19,3 +19,8 @@
 - (from friend) Search the whole picture coarsely (on a 4× smaller copy) so big shifts also work.
 - (from friend) Make test photos by rendering from a bigger photo + noise + a small stretch (more like a real camera).
 - (from friend) Show plain polar first (no log): turn 90° = slide rows by a quarter.
+- DONE in Step 9: bigger search (whole picture), blur steps 4 → 2 → 1 → 0.5, big-shift tests, optimizer-alone test, noise + stretch tests.
+- Make the new Step 4 faster (e.g. skip the second anchor when the first answer already matches > 0.9).
+- Test zoom out (< 1) and big zoom (×5, ×8) with the new version.
+- Test with a REAL second photo of the same place (phone photo, different time of day).
+- Add the B and C tests to Step 1 so all steps (2–6) run on them.

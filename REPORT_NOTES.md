@@ -143,13 +143,28 @@ double edges → clean).
 | Optimizer correction | near identity (1.008, 0.006, −1.669 / 0.003, 1.045, 0.203) | near identity, e.g. test4 (1.0196, −0.0018, −4.51 / 0.0017, 1.0196, −6.19) |
 | Conclusion | log-polar = good start, optimizer = sub-pixel | same: Step 4 gets within ~2 px, Step 6 within 0.05 px |
 
+## 5.5 Version 2 – improvements after comparing with my friend (Step 9)
+
+Use `results/step9_old_vs_new.png` as a figure and `IMPROVEMENTS.md` for the text.
+- Changes: search whole picture; rough search on 4× smaller copy with two judges
+  (cross-correlation + phase correlation, 6 spots each); gray fill of black areas; two anchors
+  (middle + most detailed) with a real-match check; optimizer blur 4 → 2 → 1 → 0.5.
+- 13 tests (my 5 + 4 friend-style like the paper's Fig. 3 + 4 extra with big shifts, zoom up to ×3):
+  practically perfect (< 0.1 px) old 5/13, **new 13/13**, friend 10/13.
+- Optimizer alone (start "no change") gets lost on all tried tests (42–15,058 px) → paper's point.
+- Search ~2× slower than version 1 (still faster than my friend's).
+- Figure `results/step4_search_maps.png`: cross-correlation = gentle hills, phase correlation =
+  sharp needle + fake stripes in the sky → why two judges are better than one.
+
 ## 6. Differences from the paper (be honest in the report)
 
 - **Which picture is fixed:** we keep the TEST picture's center fixed and search centers in
   the ORIGINAL (the test pictures are zoomed in, so their content surely exists in the
   original).
 - **Phase correlation** instead of plain cross-correlation (same idea, sharper peak, faster).
-- **Search speed-up:** coarse grid (every 4 px) then fine (every pixel) instead of an image pyramid.
+- **Search speed-up:** version 2: 4× smaller copy → half-size clock pictures → full size
+  (similar idea to the paper's pyramid); two judges for the short list (not in the paper).
+- **Anchor:** version 2 tries two anchors in the test picture and checks which answer really matches.
 - **Test data:** synthetic (we made the turned/zoomed/moved copies), so there is no noise,
   lighting change or perspective. The paper used real photos.
 
@@ -169,7 +184,8 @@ double edges → clean).
 - Synthetic tests only; real photos (noise, lighting, perspective) would be harder.
 - Only rotation + zoom + shift (+ slant in Step 6). **Perspective** (photo from a different
   side, rectangle → trapezoid) is not handled – the paper also lists this as future work.
-- Center search is slow-ish (~1.7 s per test on a MacBook Air) and limited to ±60 px.
+- Center search: version 1 was limited to ±60 px (~1.7 s on a MacBook Air); version 2 searches
+  the whole picture but is about 2× slower (see `IMPROVEMENTS.md`).
 - Log-polar gives too much space to the center (blurry left side) and too little to the edges.
 - Rectangle picture → black bumps in log-polar; rotated pictures have black corners.
 - Low-detail areas (sky) are hard to match.

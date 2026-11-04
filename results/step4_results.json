@@ -1,127 +1,152 @@
 [
   {
     "name": "test1",
-    "spot_found": [
-      209.0,
-      312.5
+    "anchor_in_test": [
+      232.0,
+      383.0
     ],
-    "peak": 0.6714,
-    "angle_found": 30.002,
+    "spot_found": [
+      194.0,
+      385.0
+    ],
+    "peak": 0.4923,
+    "match": 0.9896,
+    "angle_found": 29.976,
     "angle_true": 30,
-    "angle_error_deg": 0.002,
-    "scale_found": 1.0,
+    "angle_error_deg": 0.024,
+    "scale_found": 0.9989,
     "scale_true": 1.0,
-    "scale_error_percent": 0.003,
+    "scale_error_percent": 0.107,
     "shift_found": [
-      -0.0,
-      0.0
+      -0.2,
+      0.28
     ],
     "shift_true": [
       0,
       0
     ],
-    "shift_error_px": 0.0,
+    "shift_error_px": 0.35,
     "correct": true,
-    "seconds": 1.68
+    "seconds": 2.88
   },
   {
     "name": "test2",
-    "spot_found": [
+    "anchor_in_test": [
       209.0,
       312.5
     ],
-    "peak": 0.5616,
-    "angle_found": 0.022,
+    "spot_found": [
+      209.0,
+      312.0
+    ],
+    "peak": 0.3687,
+    "match": 0.9696,
+    "angle_found": 0.061,
     "angle_true": 0,
-    "angle_error_deg": 0.022,
-    "scale_found": 1.4929,
+    "angle_error_deg": 0.061,
+    "scale_found": 1.4874,
     "scale_true": 1.5,
-    "scale_error_percent": 0.472,
+    "scale_error_percent": 0.843,
     "shift_found": [
-      -0.0,
-      0.0
+      0.0,
+      0.74
     ],
     "shift_true": [
       0,
       0
     ],
-    "shift_error_px": 0.0,
+    "shift_error_px": 0.74,
     "correct": true,
-    "seconds": 1.67
+    "seconds": 3.03
   },
   {
     "name": "test3",
-    "spot_found": [
-      192.0,
-      310.5
+    "anchor_in_test": [
+      224.0,
+      437.0
     ],
-    "peak": 0.3214,
-    "angle_found": 44.711,
+    "spot_found": [
+      141.0,
+      376.0
+    ],
+    "peak": 0.4645,
+    "match": 0.9748,
+    "angle_found": 44.997,
     "angle_true": 45,
-    "angle_error_deg": 0.289,
-    "scale_found": 1.5042,
+    "angle_error_deg": 0.003,
+    "scale_found": 1.492,
     "scale_true": 1.5,
-    "scale_error_percent": 0.282,
+    "scale_error_percent": 0.537,
     "shift_found": [
-      20.29,
-      -15.85
+      19.75,
+      -14.23
     ],
     "shift_true": [
       20,
       -15
     ],
-    "shift_error_px": 0.9,
+    "shift_error_px": 0.81,
     "correct": true,
-    "seconds": 1.71
+    "seconds": 2.64
   },
   {
     "name": "test4",
+    "anchor_in_test": [
+      209.0,
+      312.5
+    ],
     "spot_found": [
       211.0,
-      331.5
+      332.0
     ],
-    "peak": 0.2877,
-    "angle_found": 135.097,
+    "peak": 0.3344,
+    "match": 0.9295,
+    "angle_found": 135.09,
     "angle_true": 135,
-    "angle_error_deg": 0.097,
-    "scale_found": 1.9615,
+    "angle_error_deg": 0.09,
+    "scale_found": 1.968,
     "scale_true": 2.0,
-    "scale_error_percent": 1.927,
+    "scale_error_percent": 1.602,
     "shift_found": [
-      -23.53,
-      29.17
+      -24.31,
+      29.96
     ],
     "shift_true": [
       -25,
       30
     ],
-    "shift_error_px": 1.69,
+    "shift_error_px": 0.7,
     "correct": true,
-    "seconds": 1.68
+    "seconds": 2.9
   },
   {
     "name": "test5",
+    "anchor_in_test": [
+      209.0,
+      312.5
+    ],
     "spot_found": [
       217.0,
-      304.5
+      304.0
     ],
-    "peak": 0.5039,
-    "angle_found": 89.866,
+    "peak": 0.5295,
+    "match": 0.9868,
+    "angle_found": 89.925,
     "angle_true": 90,
-    "angle_error_deg": 0.134,
-    "scale_found": 1.2005,
+    "angle_error_deg": 0.075,
+    "scale_found": 1.1984,
     "scale_true": 1.2,
-    "scale_error_percent": 0.046,
+    "scale_error_percent": 0.132,
     "shift_found": [
-      9.58,
-      9.63
+      10.17,
+      9.6
     ],
     "shift_true": [
       10,
       10
     ],
-    "shift_error_px": 0.56,
+    "shift_error_px": 0.44,
     "correct": true,
-    "seconds": 1.69
+    "seconds": 3.21
   }
 ]

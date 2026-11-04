@@ -41,7 +41,9 @@ from scipy.optimize import least_squares
 TRUTH_PATH = "results/test_cases.json"
 FOUND_PATH = "results/step4_results.json"
 OUT_DIR = "results"
-BLUR_STEPS = [2.0, 1.0]   # first match blurry photos (easier), then sharper ones
+BLUR_STEPS = [4.0, 2.0, 1.0, 0.5]   # first match VERY blurry photos (easier), then sharper ones
+                                   # (version 2: idea from my friend; old version was [2.0, 1.0])
+OLD_BLUR_STEPS = [2.0, 1.0]
 EDGE_MARGIN = 6           # ignore pixels this close to the edge of the test photo
 
 
@@ -89,12 +91,12 @@ def sample(test, m, xs, ys):
     return map_coordinates(test, [ty, tx], order=1, mode="constant", cval=0.0)
 
 
-def optimize(original, test, m_start):
+def optimize(original, test, m_start, blur_steps=None):
     """Turn the 6 knobs (Levenberg-Marquardt) to make SSD as small as possible."""
     h, w = original.shape
     m = m_start.copy()
     total_steps = 0
-    for sigma in BLUR_STEPS:
+    for sigma in (blur_steps or BLUR_STEPS):
         o = cv2.GaussianBlur(original, (0, 0), sigma)
         t = cv2.GaussianBlur(test, (0, 0), sigma)
         ys, xs = np.nonzero(visible_mask(test, m, w, h))
