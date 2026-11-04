@@ -1,0 +1,42 @@
+[
+  {
+    "name": "test1",
+    "difference_before": 45.58,
+    "difference_after_ours": 4.21,
+    "difference_after_true": 4.21,
+    "pixels_off": 0.01,
+    "lined_up": true
+  },
+  {
+    "name": "test2",
+    "difference_before": 42.62,
+    "difference_after_ours": 6.73,
+    "difference_after_true": 3.17,
+    "pixels_off": 0.64,
+    "lined_up": true
+  },
+  {
+    "name": "test3",
+    "difference_before": 58.42,
+    "difference_after_ours": 9.88,
+    "difference_after_true": 3.42,
+    "pixels_off": 0.93,
+    "lined_up": true
+  },
+  {
+    "name": "test4",
+    "difference_before": 110.56,
+    "difference_after_ours": 16.47,
+    "difference_after_true": 2.95,
+    "pixels_off": 2.04,
+    "lined_up": true
+  },
+  {
+    "name": "test5",
+    "difference_before": 85.61,
+    "difference_after_ours": 7.38,
+    "difference_after_true": 4.19,
+    "pixels_off": 0.56,
+    "lined_up": true
+  }
+]

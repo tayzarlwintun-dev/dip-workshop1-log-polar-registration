@@ -15,3 +15,6 @@
 | 2026-11-04 | 3 | test3/4/5 (shifted) | weak / wrong | 1–2° off, peak ~0.04 | expected | close by luck (small shift), not reliable |
 | 2026-11-04 | 4 | test1/test2 (not shifted) with center search | same as Step 3 | correct, best spot = middle | yes | |
 | 2026-11-04 | 4 | test3/4/5 (shifted) with center search | correct angle, zoom, shift | all correct, shift err 0.6–1.7 px | yes | peak 10× stronger than Step 3 |
+| 2026-11-04 | 5 | Fixed photos line up with original | small difference, < 3 px off | all 5 lined up, 0.01–2.04 px | yes | |
+| 2026-11-04 | 5 | "Pixels off" measure for test4 | ~2 px | 7.98 px (first try) | no → fixed | measured over whole photo; now only visible part |
+| 2026-11-04 | 5 | Overview figure title | readable | overlapped row 1 | no → fixed | moved title up |

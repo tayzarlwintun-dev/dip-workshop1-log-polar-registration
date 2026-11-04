@@ -348,3 +348,23 @@ clock picture 30 places, it matched → trick works → Step 3 can use it.
 **Summary:** Step 4 tries many spots in the original, uses Step 3 at each, keeps the best spot
 (circle). Distance from + to circle (adjusted for turn and zoom) = shift; Step 3 at that spot =
 turn and zoom.
+
+---
+
+## Q15. What does Step 5 do? (simple)
+
+Step 4 found HOW each test photo was changed (e.g. test3: turned 45°, zoomed ×1.5, moved (20, −15)).
+Step 5 does the OPPOSITE: un-move, un-zoom, un-turn. If the numbers are right, it fits exactly
+on top of the original. (Like undoing a turn + crop on a phone photo.)
+
+**Red/cyan overlay:** original = red, test photo = cyan.
+- gray = lined up ✅
+- red + cyan double edges = not lined up ❌
+- plain red = part of the original the test photo doesn't show (cut off by zoom)
+
+**Numbers:** "before" = difference before fixing (45–110), "after" = after fixing (4–16),
+"pixels off" = how far from perfect (under 1 px for most, 2 px for test4).
+
+**Why test4 is worst:** turned 135° AND zoomed ×2; Step 4 found ×1.96 instead of ×2.00.
+A small zoom error grows far from the middle, like a slightly wrong-size photocopy.
+Step 6 (optimizer) fixes this kind of small leftover error.

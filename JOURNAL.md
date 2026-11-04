@@ -165,3 +165,43 @@ Compared with Step 3 (shifted tests): angle error 1–2° → 0.1–0.3°, peak 
 
 **Next:** Step 5 – use the found numbers to put the test photo back on top of the original
 and show they line up.
+
+## Step 5 – Put the test photo back on the original (2026-11-04)
+**Goal:** use the turn, zoom and shift from Step 4 to UNDO the change, and show that the
+fixed test photo lines up with the original.
+
+**Did:** wrote `step5_align_and_overlay.py`.
+- Build the same recipe as Step 1 (turn + zoom around the middle, then shift) from the
+  numbers Step 4 found, and run it BACKWARDS (`cv2.WARP_INVERSE_MAP`): un-shift, un-zoom, un-turn.
+- Color overlay: original in RED, test photo in CYAN. Lined up → gray. Not lined up →
+  red/cyan double edges. Plain red = part of the original the test photo does not show.
+- Measured: difference before fixing, after fixing (our numbers), after fixing (true
+  numbers = best possible), and "pixels off" (how far each visible pixel is from perfect).
+- Fixed photos saved in `images/aligned/`.
+
+**Results (all 5 lined up):**
+
+| Test | Difference before | After (ours) | After (true) | Pixels off |
+|---|---|---|---|---|
+| test1 | 45.6 | 4.2 | 4.2 | 0.01 px |
+| test2 | 42.6 | 6.7 | 3.2 | 0.64 px |
+| test3 | 58.4 | 9.9 | 3.4 | 0.93 px |
+| test4 | 110.6 | 16.5 | 3.0 | 2.04 px |
+| test5 | 85.6 | 7.4 | 4.2 | 0.56 px |
+
+`results/step5_overlay.png`: BEFORE = messy red/cyan double picture, AFTER = clean gray.
+
+**Problems / fixes:**
+- First "pixels off" for test4 said 7.98 px. It was measured over the WHOLE original, but
+  test4 (zoom ×2) only shows the middle part. Small zoom errors grow far from the middle.
+  Fixed: only measure pixels the test photo really shows → 2.04 px.
+- Big title overlapped the first row of the figure → moved it up.
+
+**Limits:**
+- Not perfect: "after (ours)" is a bit higher than "after (true)" (e.g. test4 16.5 vs 3.0),
+  because Step 4's numbers are slightly off (test4 zoom ×1.96 instead of ×2.00).
+- Even with the true numbers the difference is not 0 (3–4), because turning/zooming
+  a photo blurs it slightly (pixels are re-calculated).
+
+**Next:** Step 6 (bonus) – optimizer: nudge the numbers a tiny bit at a time until the
+overlay is as clean as possible (like the paper's Levenberg–Marquardt step).

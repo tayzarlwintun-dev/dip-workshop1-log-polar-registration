@@ -11,3 +11,5 @@
 - Make a test with a BIG shift (e.g. 100 px) to show Step 3 really fails without Step 4.
 - Make the search area bigger (±120 px) and test with a big shift (100 px).
 - Search spots between pixels (sub-pixel) to get the shift more exact.
+- Show a "difference picture" (white = mismatch) next to the red/cyan overlay.
+- Use the step 5 overlay pictures in the report as the main result figure.
