@@ -332,3 +332,23 @@ needle at zoom ×3 (C1); NumPy FFT too slow → SciPy rfft2.
 synthetic tests of one photo only; zoom < 1 and > 3 not tested; settings chosen by hand.
 
 **Next:** run the new steps on my Mac and check the times; update the report from `REPORT_NOTES.md`.
+
+## Step 10 – Final clean version + GitHub (2026-11-04)
+**Checked my Mac run of Step 9:** same verdicts as the cloud run (old 5/13, new 13/13, friend 10/13).
+Tiny number differences (e.g. B3 new 0.027 vs 0.044 px) come from small rounding differences
+between computers. On my Mac: new Step 4 2.6–3.2 s per test (old 1.7 s); search + optimizer
+average 4.7 s (old 4.4 s, friend 11.6 s).
+
+**Did:**
+- New folder `Workshop 1/Workshop_1_final` with ONLY the best version (v2) + all documents.
+  The old folder `Workshop_1_project` is kept unchanged.
+- Git history kept (all old versions can be recovered), but my friend's code was removed
+  from the whole history (it is their work).
+- Removed version-1 code (`find_turn_zoom_shift_OLD`, old blur steps) and the comparison
+  scripts (Step 8, Step 9 – they needed my friend's code); their results and notes are kept.
+- New `step7_hard_tests.py`: runs the 8 hard tests (B0–B3, C1–C4) with the final method
+  → 8/8 under 0.1 px (worst B3 0.044 px). Figure `results/step7_hard_tests.png`.
+- New `requirements.txt` and a new README for the final version.
+- Ran Steps 1–7 from the clean folder: all work, same results as before.
+
+**Next:** push to a private GitHub repo (tayzarlwintun-dev); write the report.

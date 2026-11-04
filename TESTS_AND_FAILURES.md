@@ -34,3 +34,6 @@
 | 2026-11-04 | 9 | New Step 4+6 on my 5 tests | all correct | Step 6: 0.00–0.02 px | yes | Step 4 alone 0.39–1.66 px |
 | 2026-11-04 | 9 | Old vs new vs friend, 13 tests | new best | old 5/13, new 13/13, friend 10/13 | yes | new worst 0.044 px (B3) |
 | 2026-11-04 | 9 | Optimizer alone from "no change" | gets lost | 42–15,058 px off | yes (expected) | paper's main point |
+| 2026-11-04 | 10 | My Mac run of Steps 4–6 + Step 9 | same as cloud | same verdicts; Step 4 2.6–3.2 s per test | yes | tiny rounding differences only |
+| 2026-11-04 | 10 | Clean final folder, Steps 1–7 run on their own | all work | all work, 5/5 + 8/8 under 0.1 px | yes | no friend code, no version 1 |
+| 2026-11-04 | 10 | Step 7 figure titles | readable | bottom titles touched top pictures | no → fixed | more space between rows |

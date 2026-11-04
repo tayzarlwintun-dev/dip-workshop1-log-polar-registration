@@ -2,7 +2,7 @@
 
 Digital Image Processing (TGGS, 1st semester) – Tayzar Lwin Tun
 Paper: G. Wolberg & S. Zokai, *"Robust Image Registration Using Log-Polar Transform"*
-Code: Python 3.14 + OpenCV + NumPy + SciPy + Matplotlib, 6 scripts (`step1_...py` to `step6_...py`).
+Code: Python 3.14 + OpenCV + NumPy + SciPy + Matplotlib, 7 scripts (`step1_...py` to `step7_...py`).
 
 Use this file as the skeleton of the report. Each section says what to write and which
 picture/table to use.
@@ -145,14 +145,15 @@ double edges → clean).
 
 ## 5.5 Version 2 – improvements after comparing with my friend (Step 9)
 
-Use `results/step9_old_vs_new.png` as a figure and `IMPROVEMENTS.md` for the text.
+Use `results/step9_old_vs_new.png` and `results/step7_hard_tests.png` as figures and
+`IMPROVEMENTS.md` for the text. Hard tests run with `step7_hard_tests.py` (8/8 under 0.1 px).
 - Changes: search whole picture; rough search on 4× smaller copy with two judges
   (cross-correlation + phase correlation, 6 spots each); gray fill of black areas; two anchors
   (middle + most detailed) with a real-match check; optimizer blur 4 → 2 → 1 → 0.5.
 - 13 tests (my 5 + 4 friend-style like the paper's Fig. 3 + 4 extra with big shifts, zoom up to ×3):
   practically perfect (< 0.1 px) old 5/13, **new 13/13**, friend 10/13.
 - Optimizer alone (start "no change") gets lost on all tried tests (42–15,058 px) → paper's point.
-- Search ~2× slower than version 1 (still faster than my friend's).
+- Search slower than version 1 (MacBook Air: 2.6–3.2 s vs 1.7 s per test), still faster than my friend's.
 - Figure `results/step4_search_maps.png`: cross-correlation = gentle hills, phase correlation =
   sharp needle + fake stripes in the sky → why two judges are better than one.
 

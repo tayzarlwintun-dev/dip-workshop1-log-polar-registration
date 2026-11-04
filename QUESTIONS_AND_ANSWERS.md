@@ -384,3 +384,35 @@ Why Step 4 first? The optimizer is like walking blindfolded downhill: it only fi
 point if it starts nearby. That is the paper's main idea: rough guess (log-polar) + fine-tuning.
 
 Result: all tests under 0.05 px from perfect (test4: 2.04 → 0.01 px, zoom exactly ×2.0000).
+
+## Q17. What do the B and C tests mean? (simple)
+They are 8 extra, HARDER test photos (my own tests are test1–test5).
+
+**B = "paper-style" (friend-style) tests.** They copy the paper's own example (Fig. 3), which my
+friend also used: the photo is turned **201° clockwise**, **zoomed ×2.13**, slightly **stretched**
+(the paper's numbers) and gets a little camera noise. B0–B3 only differ in **how far it was moved**:
+
+| Test | How far moved | Special |
+|---|---|---|
+| B0 | 186 px | the original's middle is NOT in the test photo (old me and my friend both failed) |
+| B1 | 50 px | small move |
+| B2 | 106 px | big move |
+| B3 | 100 px | big move, the test photo's middle is in empty sky (hardest) |
+
+**C = extra tests** to check the new version is not just lucky: other turns and zooms, big moves,
+no stretch.
+
+| Test | Turn | Zoom | How far moved |
+|---|---|---|---|
+| C1 | 300° | ×3.0 | 90 px |
+| C2 | 60° | ×1.3 | 108 px |
+| C3 | −120° | ×1.8 | 114 px |
+| C4 | 10° | ×1.1 | 192 px |
+
+Pictures: `images/generated/B0_friend_style.png` … `C4_extra.png`, and `results/step7_hard_tests.png`.
+
+## Q18. Why are some numbers a tiny bit different on my Mac?
+Different computers round numbers very slightly differently (e.g. B3: 0.027 px on my Mac,
+0.044 px on Claude's computer). All verdicts (OK / BAD) are the same, so the conclusions do not
+change. When the optimizer gets LOST (optimizer alone), where it ends up is almost random,
+so those big numbers can differ a lot (2,037 vs 15,058 px) – both just mean "lost".

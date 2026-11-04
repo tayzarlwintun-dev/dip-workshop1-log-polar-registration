@@ -42,8 +42,7 @@ TRUTH_PATH = "results/test_cases.json"
 FOUND_PATH = "results/step4_results.json"
 OUT_DIR = "results"
 BLUR_STEPS = [4.0, 2.0, 1.0, 0.5]   # first match VERY blurry photos (easier), then sharper ones
-                                   # (version 2: idea from my friend; old version was [2.0, 1.0])
-OLD_BLUR_STEPS = [2.0, 1.0]
+                                   # (version 2: idea from my friend; version 1 was [2.0, 1.0])
 EDGE_MARGIN = 6           # ignore pixels this close to the edge of the test photo
 
 

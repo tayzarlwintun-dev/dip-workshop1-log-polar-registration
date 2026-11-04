@@ -1,7 +1,7 @@
 """
 Step 4 - Find the SHIFT by searching for the right "standing spot" (center).
-VERSION 2 (improved after comparing with my friend, see COMPARISON_WITH_FRIEND.md
-and IMPROVEMENTS.md).
+VERSION 2 = final version (improved after comparing with my friend, see
+COMPARISON_WITH_FRIEND.md and IMPROVEMENTS.md). Version 1 is in the git history.
 
 The problem (from Step 3):
   We always unrolled both pictures around their MIDDLE pixel. If the test picture
@@ -70,11 +70,6 @@ MID_COLS = 128      #   every pixel +-5 px around each proposed spot
 FINE_RANGE = 5
                     # final: full-size clock picture, +-1 px around the best
 FRAME = 200         # gray frame around the pictures (px)
-
-# old version (kept so we can compare old vs new in Step 9)
-OLD_SEARCH = 60     # old: search only +-60 px around the middle
-OLD_COARSE_STEP = 4
-OLD_FINE_RANGE = 4
 
 
 def load_gray(path):
@@ -306,25 +301,6 @@ def find_turn_zoom_shift(original, test):
         if best is None or r["match"] > best["match"]:
             best = r
     return best
-
-
-def find_turn_zoom_shift_OLD(original, test):
-    """The OLD Step 4 (version 1): anchor = middle, search only +-60 px. For Step 9."""
-    h, w = original.shape
-    middle = (w / 2, h / 2)
-    B_test = spectrum(log_polar_at(test, middle))
-    coarse = [(middle[0] + ox, middle[1] + oy)
-              for oy in range(-OLD_SEARCH, OLD_SEARCH + 1, OLD_COARSE_STEP)
-              for ox in range(-OLD_SEARCH, OLD_SEARCH + 1, OLD_COARSE_STEP)]
-    best, _ = search(original, B_test, coarse)
-    fine = [(best["x"] + ox, best["y"] + oy)
-            for oy in range(-OLD_FINE_RANGE, OLD_FINE_RANGE + 1)
-            for ox in range(-OLD_FINE_RANGE, OLD_FINE_RANGE + 1)]
-    best, _ = search(original, B_test, fine)
-    angle, scale = slide_to_rotation_scale(best["dx"], best["dy"])
-    shift = shift_from_spot((best["x"], best["y"]), middle, angle, scale)
-    return {"angle": angle, "scale": scale, "shift": shift,
-            "spot": (best["x"], best["y"]), "peak": best["peak"]}
 
 
 def main():

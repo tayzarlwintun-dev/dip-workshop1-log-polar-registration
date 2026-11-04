@@ -1,10 +1,10 @@
 # Improvements – Version 2 of My Method (after comparing with my friend)
 
 Changed files: `step4_find_shift.py` (big change), `step6_optimizer.py` (small change).
-New files: `step9_old_vs_new.py` (the test), `results/step9_results.json`,
+Test: `step9_old_vs_new.py` (this script is in the git history – it needed my friend's code, which is not in this final version); results kept: `results/step9_results.json`,
 `results/step9_old_vs_new.png`, new test photos `images/generated/B0_…`, `C1_…`–`C4_…`.
-The old version 1 is still inside the code (`find_turn_zoom_shift_OLD`, `OLD_BLUR_STEPS`)
-so it can be compared fairly. Step 8 still uses version 1 on purpose.
+In the final folder only version 2 is left. Version 1 and the comparison scripts
+(Steps 8 and 9) are in the git history. The hard tests now run with `step7_hard_tests.py`.
 
 ---
 
@@ -19,6 +19,8 @@ so it can be compared fairly. Step 8 still uses version 1 on purpose.
 | Practically perfect (< 0.1 px after optimizer) | 5 / 13 | **13 / 13** | 10 / 13 |
 | Worst result | failed (1449 px) | **0.044 px** | failed (304,173 px) |
 | Search time per test (cloud computer) | 4.1 s | 8.4 s | 11.3 s |
+| Search time per test (**my MacBook Air**, Step 4) | 1.7 s | 2.6–3.2 s | ~4.3 s |
+| Search + optimizer, average of 13 tests (**my Mac**) | 4.4 s | 4.7 s | 11.6 s |
 
 **New version = the only one that works on all 13.** Price: the search is about 2× slower than
 my old one (but still faster than my friend's).
@@ -146,8 +148,8 @@ is now more robust than both the old version and my friend's version on these te
 ---
 
 ## 6. What is still lacking
-1. **Slower:** ~8 s per test on the cloud computer (old: ~4 s). On my Mac probably ~3–4 s
-   (the old one took 1.7 s there).
+1. **Slower search:** on my Mac 2.6–3.2 s per test (old: 1.7 s). Search + optimizer together
+   is almost the same (4.7 s vs 4.4 s), because the old optimizer wastes time when it gets lost.
 2. **Only synthetic test photos of ONE photo.** No real second photo (lighting change, people
    moving, perspective). The paper used real photos.
 3. **Zoom out (zoom < 1) not tested,** zoom above ×3 not tested.
@@ -158,11 +160,11 @@ is now more robust than both the old version and my friend's version on these te
    optimizer took ~20 s).
 7. Step 4 alone is a bit less exact on the easiest tests than before (see section 4).
 
-## 7. How to run
+## 7. How to run (final version)
 ```bash
 source .venv/bin/activate
-python step4_find_shift.py      # new search (5 tests)        ~4 s per test on Mac (estimate)
+python step4_find_shift.py      # final search (5 tests), ~3 s per test on my Mac
 python step5_align_and_overlay.py
-python step6_optimizer.py       # new blur steps
-python step9_old_vs_new.py      # old vs new vs friend, 13 tests (~10-15 min)
+python step6_optimizer.py       # blur steps 4 -> 2 -> 1 -> 0.5
+python step7_hard_tests.py      # the 8 hard tests (B0-B3, C1-C4) with the final method
 ```

@@ -23,4 +23,4 @@
 - Make the new Step 4 faster (e.g. skip the second anchor when the first answer already matches > 0.9).
 - Test zoom out (< 1) and big zoom (×5, ×8) with the new version.
 - Test with a REAL second photo of the same place (phone photo, different time of day).
-- Add the B and C tests to Step 1 so all steps (2–6) run on them.
+- (partly DONE: `step7_hard_tests.py` runs the B and C tests with Steps 4 + 6.)

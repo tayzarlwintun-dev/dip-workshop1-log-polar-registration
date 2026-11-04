@@ -1,5 +1,9 @@
 # Handoff for a New Chat – READ THIS FIRST
 
+> **FINAL VERSION FOLDER:** `.../Workshop 1/Workshop_1_final` (this one). It has only the best
+> version (v2) + all documents; full history (minus friend's code) in git, pushed to a private
+> GitHub repo on account tayzarlwintun-dev. The old folder `Workshop_1_project` was kept as it was.
+
 This file tells a new Claude chat everything about this project, so it does not need to
 re-read all the code (saves tokens). For more detail: `REPORT_NOTES.md` (full results),
 `JOURNAL.md` (step-by-step history), `QUESTIONS_AND_ANSWERS.md` (simple explanations).
@@ -30,7 +34,8 @@ Goal: picture 2 is the same scene **turned, zoomed and moved**; the program find
 3 amounts by itself and puts picture 2 back on top of picture 1. It does NOT find
 differences between pictures – it only lines them up.
 
-Folder: `.../TGGS_1st_semester/Digital_image_processing_by_Wannida_Sae-tang/Workshop/Workshop 1/Workshop_1_project`
+Folder: `.../TGGS_1st_semester/Digital_image_processing_by_Wannida_Sae-tang/Workshop/Workshop 1/Workshop_1_final`
+(old folder: `.../Workshop 1/Workshop_1_project`)
 Python 3.14 in `.venv` (opencv-python 5.0, numpy, scipy, matplotlib). Git repo, branch `main`.
 graphify is installed with a git hook (output `graphify-out/`, ignored in git).
 
@@ -45,9 +50,8 @@ graphify is installed with a git hook (output `graphify-out/`, ignored in git).
 | `step4_find_shift.py` | searches many centers in the original, keeps best peak → turn + zoom + shift |
 | `step5_align_and_overlay.py` | puts test photos back (`images/aligned/`), red/cyan overlay before vs after |
 | `step6_optimizer.py` | bonus: Levenberg–Marquardt fine-tuning of 6 affine knobs (SSD), like the paper (v2: blur 4→2→1→0.5) |
-| `step8_compare_with_friend.py` | my OLD method (v1) vs friend's, on my tests + friend-style tests |
-| `step9_old_vs_new.py` | old (v1) vs new (v2) vs friend on 13 tests |
-| `friend_version/` | copy of friend's `registration.py`, `demo_tools.py` |
+| `step7_hard_tests.py` | 8 hard tests (B0–B3 paper-style, C1–C4 extra) with final Steps 4 + 6 |
+| (git history only) | `step8_compare_with_friend.py`, `step9_old_vs_new.py`, version 1 of Step 4 |
 | `COMPARISON_WITH_FRIEND.md`, `IMPROVEMENTS.md` | comparison and version-2 explanation |
 | `results/*.json`, `results/*.png` | all numbers and figures |
 | `REPORT_NOTES.md` | report skeleton with all tables, figures, limits, conclusion |
@@ -87,8 +91,8 @@ Whole-picture search: gray-fill + 200 px frame; rough search on 4× smaller copy
 batched scipy rfft2), two judges (cross-correlation + phase correlation) × 6 spots; every pixel
 ±5 px with 180×128 log-polar; final ±1 px with 360×256. Two anchors (test middle + most-detailed
 spot), keep the one whose put-back picture matches best (NCC). shift = anchor − middle − L(spot − middle).
-Old version kept as `find_turn_zoom_shift_OLD`. Results v2: 13/13 tests < 0.1 px (old 5/13,
-friend 10/13); ~8 s per test on cloud (old ~4 s). Table below = version 1.
+Version 1 only in git history. Results v2: 13/13 tests < 0.1 px (old 5/13,
+friend 10/13); Mac: Step 4 2.6–3.2 s per test (old 1.7 s). Table below = version 1.
 
 ## 6. Final results (version 1)
 

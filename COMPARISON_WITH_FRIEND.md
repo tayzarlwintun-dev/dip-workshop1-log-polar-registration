@@ -1,8 +1,8 @@
 # My Work vs My Friend's Work – Workshop 1 (Log-Polar Registration)
 
 My friend's version: `Workshop1_Demo.ipynb` + `registration.py` + `demo_tools.py`
-(a copy of the two `.py` files is in `friend_version/`, so the test can be run again).
-Test script: `step8_compare_with_friend.py` → `results/step8_comparison.json` and
+(their code is NOT included in this final version – it is my friend's work).
+Test script: `step8_compare_with_friend.py` (this script is in the git history – it needed my friend's code, which is not in this final version) → `results/step8_comparison.json` and
 `results/step8_comparison.png`.
 
 ---
@@ -10,6 +10,7 @@ Test script: `step8_compare_with_friend.py` → `results/step8_comparison.json` 
 > **Update (Step 9):** I took my friend's ideas into my method (version 2). The new version
 > works on all 13 tests (old 5/13, friend 10/13), including B0 where both of us failed.
 > See `IMPROVEMENTS.md`. The numbers below are for my OLD version 1.
+> The 8 hard tests (B, C) now run with `step7_hard_tests.py`.
 
 ## 1. The short answer
 
