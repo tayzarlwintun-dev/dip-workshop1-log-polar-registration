@@ -1,0 +1,153 @@
+{
+  "part_a_friend_on_my_tests": [
+    {
+      "name": "test1",
+      "angle_found": 30.0,
+      "scale_found": 1.0,
+      "shift_found": [
+        0.18,
+        0.18
+      ],
+      "angle_error_deg": 0.0,
+      "pixels_off_logpolar": 0.259,
+      "pixels_off_lm": 0.053,
+      "score": 0.995,
+      "seconds_logpolar": 4.49,
+      "seconds_lm": 2.65
+    },
+    {
+      "name": "test2",
+      "angle_found": 0.0,
+      "scale_found": 1.5066,
+      "shift_found": [
+        0.25,
+        -0.25
+      ],
+      "angle_error_deg": 0.0,
+      "pixels_off_logpolar": 0.624,
+      "pixels_off_lm": 0.008,
+      "score": 1.003,
+      "seconds_logpolar": 4.19,
+      "seconds_lm": 7.59
+    },
+    {
+      "name": "test3",
+      "angle_found": 45.0,
+      "scale_found": 1.5066,
+      "shift_found": [
+        19.57,
+        -15.0
+      ],
+      "angle_error_deg": 0.0,
+      "pixels_off_logpolar": 0.657,
+      "pixels_off_lm": 0.006,
+      "score": 1.001,
+      "seconds_logpolar": 4.55,
+      "seconds_lm": 1.56
+    },
+    {
+      "name": "test4",
+      "angle_found": 135.0,
+      "scale_found": 2.0299,
+      "shift_found": [
+        -25.5,
+        30.56
+      ],
+      "angle_error_deg": 0.0,
+      "pixels_off_logpolar": 1.487,
+      "pixels_off_lm": 0.002,
+      "score": 0.991,
+      "seconds_logpolar": 4.21,
+      "seconds_lm": 0.73
+    },
+    {
+      "name": "test5",
+      "angle_found": 90.0,
+      "scale_found": 1.2048,
+      "shift_found": [
+        10.1,
+        10.4
+      ],
+      "angle_error_deg": 0.0,
+      "pixels_off_logpolar": 0.647,
+      "pixels_off_lm": 0.04,
+      "score": 0.992,
+      "seconds_logpolar": 4.49,
+      "seconds_lm": 5.32
+    }
+  ],
+  "part_b_friend_style_tests": [
+    {
+      "case": "B1 small shift",
+      "method": "mine",
+      "spot_offset": [
+        40,
+        -30
+      ],
+      "pixels_off_logpolar": 3.524,
+      "pixels_off_lm": 1.188,
+      "seconds_logpolar": 1.75,
+      "seconds_lm": 1.38
+    },
+    {
+      "case": "B1 small shift",
+      "method": "friend",
+      "spot_offset": [
+        40,
+        -30
+      ],
+      "pixels_off_logpolar": 2.095,
+      "pixels_off_lm": 0.001,
+      "seconds_logpolar": 4.26,
+      "seconds_lm": 0.67
+    },
+    {
+      "case": "B2 big shift",
+      "method": "mine",
+      "spot_offset": [
+        70,
+        80
+      ],
+      "pixels_off_logpolar": 281.978,
+      "pixels_off_lm": 298.948,
+      "seconds_logpolar": 1.81,
+      "seconds_lm": 3.34
+    },
+    {
+      "case": "B2 big shift",
+      "method": "friend",
+      "spot_offset": [
+        70,
+        80
+      ],
+      "pixels_off_logpolar": 47.885,
+      "pixels_off_lm": 0.001,
+      "seconds_logpolar": 4.24,
+      "seconds_lm": 7.81
+    },
+    {
+      "case": "B3 big shift",
+      "method": "mine",
+      "spot_offset": [
+        0,
+        -100
+      ],
+      "pixels_off_logpolar": 416.218,
+      "pixels_off_lm": 1447.449,
+      "seconds_logpolar": 1.71,
+      "seconds_lm": 11.7
+    },
+    {
+      "case": "B3 big shift",
+      "method": "friend",
+      "spot_offset": [
+        0,
+        -100
+      ],
+      "pixels_off_logpolar": 2.06,
+      "pixels_off_lm": 0.009,
+      "seconds_logpolar": 4.33,
+      "seconds_lm": 0.66
+    }
+  ]
+}

@@ -261,3 +261,35 @@ how to reproduce.
 **Result:** all 7 workshop steps done. Final accuracy: all 5 tests within 0.05 px after Step 6.
 
 **Next:** write the report from `REPORT_NOTES.md`; compare with my friend's work.
+
+## Step 8 – Compare with my friend's work (2026-11-04)
+**Goal:** see what is the same and different in my friend's version (Jupyter notebook +
+`registration.py` + `demo_tools.py`), and test both fairly on the same pictures.
+
+**Did:**
+- Read the friend's notebook and code. Same big idea (log-polar → turn + zoom, search → shift,
+  Levenberg–Marquardt → fine-tune), both in Python. Friend: NumPy + SciPy only,
+  cross-correlation like the paper, searches the WHOLE test photo (slide 11).
+- Copied their 2 code files into `friend_version/` and wrote `step8_compare_with_friend.py`.
+- Part A: friend's code on my 5 test photos. Part B: friend-style tests on my photo
+  (turn 201°, zoom 2.13, the paper's small stretch, noise), small and big shifts.
+- Wrote `COMPARISON_WITH_FRIEND.md` (simple explanation + tables) and
+  `results/step8_comparison.png`.
+
+**Results:**
+- Part A: friend's method correct on all 5 (before LM 0.26–1.49 px, after LM 0.002–0.053 px).
+  Mine: 0.01–2.04 → 0.00–0.04 px. Same quality. Mine ~2.5× faster (4 s vs 10 s, cloud computer).
+- Part B: big shift (100–106 px): mine fails (303 / 1449 px off), friend's works (0.001 / 0.009 px).
+  Small shift with stretch: mine 1.15 px, friend 0.001 px.
+
+**Problems / fixes:**
+- First "big shift" case put the original's middle OUTSIDE the test photo → both failed.
+  Not fair to my friend (their known limit), so I picked shifts where it stays visible.
+- My optimizer stopped at 1.15 px on the stretched test. Cause: it starts not blurry enough.
+  With the friend's blur steps (4, 2, 1, 0.5) it reaches 0.004 px. Not changed in Step 6 yet.
+
+**Limits:** friend's own photos were not uploaded, so their notebook could not be re-run exactly.
+All test angles are whole degrees (helps whole-step methods).
+
+**Next:** decide if I want to copy the friend's ideas (bigger search, more blur steps,
+"optimizer alone fails" test, noise + stretch tests), then write the report.

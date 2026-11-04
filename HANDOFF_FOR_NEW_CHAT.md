@@ -101,7 +101,14 @@ Differences from the paper: we search centers in the original (paper crops refer
 and searches the other image); phase correlation instead of plain cross-correlation; coarse grid
 instead of image pyramid; synthetic test photos (paper used real photos).
 
-## 7. NEXT TASK: compare with my friend's work
+## 7. DONE: compare with my friend's work (see `COMPARISON_WITH_FRIEND.md`, Step 8)
+
+Summary: same idea, both Python. Friend = cross-correlation + searches the WHOLE test photo
+(works for big shifts, ~2.5× slower); mine = phase correlation + ±60 px box (fails for
+shifts > 60 px). Both ≤ 0.06 px after LM on my 5 tests. Friend's blur steps (4,2,1,0)
+make the optimizer more robust. Original task text below.
+
+### Original task
 
 I will upload my friend's version of the same workshop. Please:
 1. Read this file first (don't re-read my code unless needed).

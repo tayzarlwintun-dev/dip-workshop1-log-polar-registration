@@ -15,3 +15,7 @@
 - Use the step 5 overlay pictures in the report as the main result figure.
 - Try the optimizer ALONE (start from "no change") on test4 to show it gets lost – proves the paper's point.
 - Choose the zoomed area in step6_compare.png by detail (buildings), not by distance, so the improvement is visible.
+- (from friend) Optimizer blur steps 4 → 2 → 1 → 0.5 instead of 2 → 1 (tested: 1.15 → 0.004 px on stretched test).
+- (from friend) Search the whole picture coarsely (on a 4× smaller copy) so big shifts also work.
+- (from friend) Make test photos by rendering from a bigger photo + noise + a small stretch (more like a real camera).
+- (from friend) Show plain polar first (no log): turn 90° = slide rows by a quarter.

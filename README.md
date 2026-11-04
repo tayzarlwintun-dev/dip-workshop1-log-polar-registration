@@ -19,6 +19,7 @@ automatically, then put picture 2 back on top of picture 1.
 | 5 | Align picture 2 onto picture 1 and overlay | done |
 | 6 | Optimizer fine-tuning (bonus) | done |
 | 7 | Report notes | done |
+| 8 | Compare with my friend's work | done |
 
 ## Folder layout
 - `images/` – input photos (`original.jpg`)
@@ -28,6 +29,8 @@ automatically, then put picture 2 back on top of picture 1.
 - `IDEAS.md` – ideas for later
 - `QUESTIONS_AND_ANSWERS.md` – my questions with simple answers
 - `REPORT_NOTES.md` – everything for the report (method, results tables, figures, limits)
+- `COMPARISON_WITH_FRIEND.md` – my method vs my friend's (same / different, fair tests)
+- `friend_version/` – copy of my friend's code (used by Step 8)
 - `HANDOFF_FOR_NEW_CHAT.md` – summary for a new Claude chat (read first)
 
 ## How to run
@@ -39,6 +42,7 @@ python step3_find_rotation_scale.py  # find rotation + zoom by itself
 python step4_find_shift.py           # also find the shift (search for the center)
 python step5_align_and_overlay.py    # put test photos back + red/cyan overlay
 python step6_optimizer.py            # fine-tune with Levenberg-Marquardt (bonus)
+python step8_compare_with_friend.py  # compare with my friend's method (~2-3 min)
 ```
 
 ## Tools

@@ -21,3 +21,7 @@
 | 2026-11-04 | 6 | Optimizer improves Step 4 numbers | pixels off goes down | did not move (stopped after 1 look) | no → fixed | cv2.warpAffine rounds to 1/32 px; use map_coordinates |
 | 2026-11-04 | 6 | test2/test4 improve | pixels off goes down | barely changed (2.04 → 1.94) | no → fixed | edge pixels slipping out; trim outer frame |
 | 2026-11-04 | 6 | All tests after fixes | < 0.1 px off | 0.00–0.04 px | yes | test4 zoom exactly ×2.0000 |
+| 2026-11-04 | 8 | Friend's method on my 5 tests | all correct | all correct, 0.26–1.49 px (before LM), ≤ 0.053 px after | yes | ~10 s/test vs mine ~4 s (same computer) |
+| 2026-11-04 | 8 | Big shift, original's middle outside test photo (first try) | friend works | both fail | not fair → changed | friend needs the original's middle visible |
+| 2026-11-04 | 8 | B1 friend-style (zoom 2.13, 201°, stretch), small shift | both < 0.1 px | mine 1.15 px, friend 0.001 px | partly | my optimizer: too little blur; blur 4,2,1,0.5 → 0.004 px |
+| 2026-11-04 | 8 | B2/B3 big shift (~100 px) | mine fails, friend works | mine 303 / 1449 px, friend 0.001 / 0.009 px | expected | my search box is only ±60 px |
