@@ -422,7 +422,7 @@ so those big numbers can differ a lot (2,037 vs 15,058 px) – both just mean "l
 "in practice" up to **×4**. Its examples: ×4 (mandrill) and 0.469 (= ×2.13 the other way round).
 It doesn't test "zoom out" separately, because zoom out = zoom in with the two pictures swapped.
 
-**My method (tested in `step8_zoom_limits.py`):** works from **×0.5 to ×3**. Fails at ×4 and more,
+**My method (tested in `step8_zoom_limits.py`):** works from **×0.5 to ×2** (×3 only sometimes). Fails at ×4 and more,
 and at ×0.35 and less. So for big zoom the paper's claim is better than my method right now.
 
 **Why (simple):** imagine finding a small close-up photo of ONE window in a photo of the whole city.
@@ -431,3 +431,14 @@ and at ×0.35 and less. So for big zoom the paper's claim is better than my meth
 - At ×6+ the close-up itself is a blurry blown-up piece of my small photo (a real camera zoom
   would show real detail).
 - Zoom out ×0.25: the test photo is 94% black with a tiny city in the middle.
+
+## Q20. Why do zoom in and zoom out fail? (simplest)
+Finding a close-up of ONE building in a photo of the whole city:
+- **Zoom in ×3 – ×5:** to be fast, the first rough look uses a 4× smaller city photo. The building
+  is then a tiny 22 × 22 blob, but the test photo shows it big → too different to recognise.
+  (Fix tested: also shrink the test photo, so both are the same size.)
+- **Zoom in ×6+:** the test photo is a tiny piece of my small photo blown up → very blurry,
+  almost nothing left to match.
+- **Zoom out ×0.35 and less:** the test photo is mostly black with a tiny city inside.
+  (Fix tested: swap the photos and look for the city photo inside the test photo.)
+Picture: `experiments/zoom_fix/why_zoom_fails.png`.

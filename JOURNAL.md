@@ -372,6 +372,7 @@ average 4.7 s (old 4.4 s, friend 11.6 s).
 | Result | FAILED | FAILED | FAILED | FAILED | FAILED | **0.004 px** | **0.018 px** | FAILED | FAILED |
 
 So my final method works for zoom **×0.5 to ×3** (tested), NOT for ×4 or more, and NOT for ×0.35 or less.
+(Correction in Step 12: ×3 works only sometimes – C1 yes, the 40° test no. Safe range: ×0.5 – ×2.)
 The paper says ×4 should work → my method is weaker than the paper here.
 
 **Why ×4 fails (checked):** the EXACT full-size comparison at the true spot still works at ×4
@@ -386,3 +387,24 @@ of my 418 × 625 photo blown up, so it is very blurry (no real detail, unlike a 
 is tiny inside the look-circle.
 
 **Ideas to fix (not done yet):** see `IDEAS.md`.
+
+## Step 12 – Zoom fix EXPERIMENT (test only, main method unchanged) (2026-11-04)
+**Why separate:** I show the current main method to my teacher; the zoom fix is only a test
+I may mention later. Folder: `experiments/zoom_fix/` (README there explains everything simply).
+
+**Tried:**
+- Fix 1 – zoom guesses: in the rough search ALSO make the test photo 2×, 4×, 8× smaller than
+  the original, so the building is about the same size in both.
+- Fix 2 – swap the photos for zoom out (zoom out = zoom in the other way round, like the paper's 0.469).
+- Keep the answer that really matches best after putting the photo back.
+
+**Results (turn 40°, small move):**
+| Zoom | ×0.25 | ×0.35 | ×0.5 | ×0.75 | ×2 | ×3 | ×4 | ×5 | ×6 | ×8 | ×10 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Main | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Experiment | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+
+- Main method: safe range **×0.5 – ×2** (correction: ×3 only sometimes).
+- Experiment: **×0.35 – ×5** (like the paper's "×4 in practice"). Price: ~60 s instead of ~10–20 s.
+- Still fails: ×0.25 (city too tiny) and ×6+ (test photo too blurry; would need a bigger photo).
+- Picture explaining why: `experiments/zoom_fix/why_zoom_fails.png`.

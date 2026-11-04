@@ -12,7 +12,8 @@ automatically, then puts picture 2 back on top of picture 1.
 - My 5 test photos: all lined up within **0.02 px** (after the optimizer).
 - 8 harder photos (paper-style turn 201° + zoom ×2.13 + stretch, zoom up to ×3, moves up to 192 px):
   all within **0.044 px**.
-- Zoom range: works from ×0.5 to ×3; fails at ×4+ and ×0.35- (see `step8_zoom_limits.py`).
+- Zoom range: works from ×0.5 to ×2 (×3 only sometimes); fails at ×4+ and ×0.35- (see `step8_zoom_limits.py`).
+  A test-only experiment reaches ×0.35 – ×5 (see `experiments/zoom_fix/`, main method unchanged).
 - Compared with my old version 1 and my friend's version on 13 photos:
   old 5/13, friend 10/13, **this final version 13/13** (see `IMPROVEMENTS.md`).
 
@@ -26,7 +27,8 @@ automatically, then puts picture 2 back on top of picture 1.
 | `step5_align_and_overlay.py` | puts the test photos back, red/cyan overlay |
 | `step6_optimizer.py` | Levenberg–Marquardt fine-tuning of 6 numbers (like the paper) |
 | `step7_hard_tests.py` | 8 hard test photos (B0–B3 paper-style, C1–C4 extra) with Steps 4 + 6 |
-| `step8_zoom_limits.py` | how far can we zoom? ×0.25 … ×10 → works ×0.5 – ×3 |
+| `step8_zoom_limits.py` | how far can we zoom? ×0.25 … ×10 → works ×0.5 – ×2 |
+| `experiments/zoom_fix/zoom_fix_test.py` | TEST ONLY: zoom guesses + swap photos → works ×0.35 – ×5 |
 
 (The journal uses its own step numbers: "Step 7" there = report notes, Steps 8–9 = comparison
 and improvement. The old version 1 and the comparison scripts are in the git history.)

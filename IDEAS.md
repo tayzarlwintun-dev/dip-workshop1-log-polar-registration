@@ -24,9 +24,10 @@
 - Test zoom out (< 1) and big zoom (×5, ×8) with the new version.
 - Test with a REAL second photo of the same place (phone photo, different time of day).
 - (partly DONE: `step7_hard_tests.py` runs the B and C tests with Steps 4 + 6.)
-- Zoom ×4+: make the rough search zoom-aware – e.g. shrink the original LESS than the test photo
+- (TESTED in experiments/zoom_fix: works up to ×5) Zoom ×4+: make the rough search zoom-aware – e.g. shrink the original LESS than the test photo
   (try a few zoom guesses ×1, ×2, ×4), so the small look-circle still has detail.
-- Zoom out (< ×0.5): swap the two pictures (zoom out = zoom in the other way round, like the paper's
+- (TESTED in experiments/zoom_fix: works down to ×0.35) Zoom out (< ×0.5): swap the two pictures (zoom out = zoom in the other way round, like the paper's
   0.469), solve, then turn the answer around.
 - Test big zoom with a BIGGER photo (e.g. 2000 px wide), so a ×8 zoom still has real detail
   (like a real camera; my friend rendered test photos from a big photo).
+- Make the zoom-fix experiment faster (only try zoom guesses / swap when the normal search does not match well), then maybe move it into the main method.

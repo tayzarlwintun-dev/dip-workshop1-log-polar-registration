@@ -128,7 +128,7 @@ or better on all 5.
 | Correction by LM is close to "do nothing" | Yes, e.g. test4 `[1.016 −0.002 −3.2 / 0.002 1.016 −5.8]` | ✅ same |
 | LM alone fails for big changes | Yes: start from "no change" → test1 42 px, test4 15,058 px, B1 285 px, C2 150 px off | ✅ confirmed |
 | Paper's example: zoom 2.13 (0.469), turn 201°, small stretch | My B0–B3 copy this (synthetic, on my photo): 0.002–0.044 px | ✅ works |
-| Works up to zoom ×10 (×4 "in practice"), any turn | Any turn; zoom ×0.5 – ×3 works, ×4+ and ×0.35- fail (Step 8 test) | ❌ weaker than the paper for big zoom |
+| Works up to zoom ×10 (×4 "in practice"), any turn | Any turn; zoom ×0.5 – ×2 works (×3 only sometimes), ×4+ and ×0.35- fail. Experiment `experiments/zoom_fix/`: ×0.35 – ×5 | ❌ weaker than the paper for big zoom |
 | Real photos | Synthetic photos only | ❌ not tested |
 
 **Why the reverse direction is a plus:** the paper/friend needs the **original's middle to be
@@ -152,7 +152,8 @@ is now more robust than both the old version and my friend's version on these te
    is almost the same (4.7 s vs 4.4 s), because the old optimizer wastes time when it gets lost.
 2. **Only synthetic test photos of ONE photo.** No real second photo (lighting change, people
    moving, perspective). The paper used real photos.
-3. **Zoom range only ×0.5 – ×3** (tested in `step8_zoom_limits.py`). ×4+ fails (rough search on the
+3. **Zoom range only ×0.5 – ×2** (×3 only sometimes; tested in `step8_zoom_limits.py` and
+   `experiments/zoom_fix/`). A test-only fix reaches ×0.35 – ×5 but is ~4× slower. ×4+ fails (rough search on the
    4× smaller copy loses the spot); ×0.35- fails (test photo mostly black). Paper: up to ×4–×10.
 4. **Perspective** (photo from a different side) cannot be described by turn + zoom + shift,
    and the optimizer's 6 numbers can't fully describe it either (the paper says the same).

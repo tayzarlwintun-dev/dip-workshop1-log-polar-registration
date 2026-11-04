@@ -5,9 +5,9 @@
     "turn_found": -129.14,
     "zoom_found": 0.942,
     "pixels_off_after_search": 342.22,
-    "pixels_off_after_optimizer": 342.889,
+    "pixels_off_after_optimizer": 342.908,
     "photo_filled_percent": 99.9,
-    "seconds": 16.5,
+    "seconds": 7.2,
     "practically_perfect": false
   },
   {
@@ -16,9 +16,9 @@
     "turn_found": -144.01,
     "zoom_found": 0.833,
     "pixels_off_after_search": 326.59,
-    "pixels_off_after_optimizer": 10818.228,
+    "pixels_off_after_optimizer": 12589.875,
     "photo_filled_percent": 99.9,
-    "seconds": 73.7,
+    "seconds": 55.4,
     "practically_perfect": false
   },
   {
@@ -27,9 +27,9 @@
     "turn_found": 16.02,
     "zoom_found": 1.082,
     "pixels_off_after_search": 167.95,
-    "pixels_off_after_optimizer": 144.843,
+    "pixels_off_after_optimizer": 143.973,
     "photo_filled_percent": 100.0,
-    "seconds": 17.8,
+    "seconds": 5.7,
     "practically_perfect": false
   },
   {
@@ -38,9 +38,9 @@
     "turn_found": 28.97,
     "zoom_found": 0.958,
     "pixels_off_after_search": 301.38,
-    "pixels_off_after_optimizer": 243.26,
+    "pixels_off_after_optimizer": 243.344,
     "photo_filled_percent": 100.0,
-    "seconds": 33.1,
+    "seconds": 15.9,
     "practically_perfect": false
   },
   {
@@ -49,9 +49,9 @@
     "turn_found": 163.01,
     "zoom_found": 0.888,
     "pixels_off_after_search": 255.84,
-    "pixels_off_after_optimizer": 293.15,
+    "pixels_off_after_optimizer": 292.108,
     "photo_filled_percent": 100.0,
-    "seconds": 15.3,
+    "seconds": 6.4,
     "practically_perfect": false
   },
   {
@@ -62,7 +62,7 @@
     "pixels_off_after_search": 1.21,
     "pixels_off_after_optimizer": 0.004,
     "photo_filled_percent": 53.2,
-    "seconds": 13.9,
+    "seconds": 4.7,
     "practically_perfect": true
   },
   {
@@ -71,9 +71,9 @@
     "turn_found": 39.99,
     "zoom_found": 0.505,
     "pixels_off_after_search": 1.91,
-    "pixels_off_after_optimizer": 0.018,
+    "pixels_off_after_optimizer": 0.017,
     "photo_filled_percent": 25.0,
-    "seconds": 14.1,
+    "seconds": 4.9,
     "practically_perfect": true
   },
   {
@@ -82,9 +82,9 @@
     "turn_found": 43.06,
     "zoom_found": 0.77,
     "pixels_off_after_search": 302.2,
-    "pixels_off_after_optimizer": 11105.982,
+    "pixels_off_after_optimizer": 11106.979,
     "photo_filled_percent": 12.3,
-    "seconds": 60.1,
+    "seconds": 22.4,
     "practically_perfect": false
   },
   {
@@ -93,9 +93,9 @@
     "turn_found": 47.0,
     "zoom_found": 0.784,
     "pixels_off_after_search": 244.77,
-    "pixels_off_after_optimizer": 189.984,
+    "pixels_off_after_optimizer": 190.07,
     "photo_filled_percent": 6.2,
-    "seconds": 20.7,
+    "seconds": 8.1,
     "practically_perfect": false
   }
 ]

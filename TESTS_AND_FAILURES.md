@@ -41,3 +41,6 @@
 | 2026-11-04 | 11 | Zoom out ×0.75, ×0.5 | works | 0.004 / 0.018 px | yes | |
 | 2026-11-04 | 11 | Zoom out ×0.35, ×0.25 | ? | FAILED | no | test photo only 6–12% filled |
 | 2026-11-04 | 11 | ×4: full-size comparison at the true spot | correct zoom | zoom read ×3.89, peak 0.088 > 0.042 | yes | proves the rough search is the weak part |
+| 2026-11-04 | 12 | Main method at ×3 (turn 40°) | works (C1 ×3 worked) | FAILED (404 px) | no | ×3 only sometimes → safe range ×0.5–×2 |
+| 2026-11-04 | 12 | Experiment (zoom guesses + swap), ×0.35 … ×5 | works | all OK (0.002–0.069 px) | yes | test only, main unchanged; ~60 s per test |
+| 2026-11-04 | 12 | Experiment at ×0.25, ×6, ×8, ×10 | ? | FAILED | no | city too tiny / test photo too blurry |

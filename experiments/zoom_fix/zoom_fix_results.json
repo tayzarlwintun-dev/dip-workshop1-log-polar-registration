@@ -1,0 +1,79 @@
+[
+  {
+    "zoom": 0.25,
+    "main_pixels_off": 189.984,
+    "fixed_pixels_off": 174.9166,
+    "main_seconds": 20.5,
+    "fixed_seconds": 63.0
+  },
+  {
+    "zoom": 0.35,
+    "main_pixels_off": 11105.9823,
+    "fixed_pixels_off": 0.0686,
+    "main_seconds": 55.8,
+    "fixed_seconds": 65.9
+  },
+  {
+    "zoom": 0.5,
+    "main_pixels_off": 0.0181,
+    "fixed_pixels_off": 0.0174,
+    "main_seconds": 12.3,
+    "fixed_seconds": 60.7
+  },
+  {
+    "zoom": 0.75,
+    "main_pixels_off": 0.0037,
+    "fixed_pixels_off": 0.0039,
+    "main_seconds": 10.8,
+    "fixed_seconds": 64.0
+  },
+  {
+    "zoom": 2,
+    "main_pixels_off": 0.0019,
+    "fixed_pixels_off": 0.0017,
+    "main_seconds": 9.7,
+    "fixed_seconds": 62.8
+  },
+  {
+    "zoom": 3,
+    "main_pixels_off": 403.8669,
+    "fixed_pixels_off": 0.0041,
+    "main_seconds": 13.4,
+    "fixed_seconds": 60.2
+  },
+  {
+    "zoom": 4,
+    "main_pixels_off": 342.889,
+    "fixed_pixels_off": 0.0024,
+    "main_seconds": 16.9,
+    "fixed_seconds": 64.5
+  },
+  {
+    "zoom": 5,
+    "main_pixels_off": 10818.228,
+    "fixed_pixels_off": 0.0342,
+    "main_seconds": 70.6,
+    "fixed_seconds": 62.7
+  },
+  {
+    "zoom": 6,
+    "main_pixels_off": 144.8429,
+    "fixed_pixels_off": 285.5469,
+    "main_seconds": 16.4,
+    "fixed_seconds": 62.3
+  },
+  {
+    "zoom": 8,
+    "main_pixels_off": 243.2595,
+    "fixed_pixels_off": 361.9962,
+    "main_seconds": 28.5,
+    "fixed_seconds": 69.7
+  },
+  {
+    "zoom": 10,
+    "main_pixels_off": 293.1496,
+    "fixed_pixels_off": 182.6819,
+    "main_seconds": 14.1,
+    "fixed_seconds": 63.6
+  }
+]
