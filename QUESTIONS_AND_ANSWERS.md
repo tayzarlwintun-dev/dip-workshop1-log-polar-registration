@@ -537,3 +537,15 @@ Test (Step 3, test2 = zoom ×1.5, time per try on Claude's computer):
   spot gives the MOVE, the slide there gives TURN + ZOOM; (5) put the photo back for each standing spot
   and keep the answer that really lines up best.
 
+## Q25. Step 4: which "middle"? Where are the 12 places and the cyan circle?
+Picture: `explanations/step4_explained.png` (test4).
+- "The middle" = the middle of the TEST photo (red dot). It stays fixed. Question: where is THIS
+  building in the original?
+- The search happens in the ORIGINAL photo. The 12 short-listed places (orange dots) and the cyan
+  circle (best place) are all in the ORIGINAL.
+- Compare the cyan circle with the ORIGINAL's middle (white +, at 209, 312):
+  test4 circle at (211, 332) = 20 px below. That gap, turned 135° and zoomed ×2, gives the move
+  (−24, 30); true (−25, 30). Not moved (test2) → the circle sits exactly on the original's middle.
+- Order: shrink BOTH photos 4× → both methods score every place → 6 best each = 12 → full size,
+  every pixel around the 12 with phase correlation → best = cyan circle → put the photo back to check.
+
