@@ -363,12 +363,12 @@ def main():
     fig, axes = plt.subplots(2, n, figsize=(2.6 * n, 8))
     ext = [0, w, h, 0]
     for i, (t, r) in enumerate(maps):
-        for j, (key, label) in enumerate([("cross_map", "cross-corr. (friend)"),
-                                          ("phase_map", "phase corr. (mine)")]):
+        for j, (key, label) in enumerate([("cross_map", "cross-correlation (like the paper)"),
+                                          ("phase_map", "phase correlation")]):
             ax = axes[j, i]
             ax.imshow(r[key], cmap="inferno", extent=ext)
             ax.plot(r["spot"][0], r["spot"][1], "o", mfc="none", mec="cyan", ms=12, mew=2)
-            ax.set_title(f"{t['name']}: {label}", fontsize=9)
+            ax.set_title(f"{t['name']}\n{label}", fontsize=9)
             ax.set_xticks([])
             ax.set_yticks([])
     fig.suptitle("Rough search over the WHOLE original: bright = good match\n"
