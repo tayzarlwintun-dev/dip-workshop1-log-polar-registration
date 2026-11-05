@@ -511,3 +511,29 @@ Test (Step 3, test2 = zoom ×1.5, time per try on Claude's computer):
 - Speed matters in Step 4: it makes thousands of clock pictures per test.
 - Turn (test1) was exactly 30.00° for every number of columns (columns only affect zoom).
 
+## Q24. Phase or cross-correlation? What does the Step 4 picture show? What does Step 4 do?
+- **The Step 4 picture** shows the rough score of EVERY spot for each method. The 6 best spots of each
+  method are not marked; the cyan circle = the ONE final best spot after the exact search.
+- **The teacher's slide 11 and the paper use cross-correlation.** Phase correlation was my own choice
+  (made while building the project): it is a standard method (the paper mentions it, ref [2] Kuglin & Hines,
+  used in Fourier–Mellin methods) and gives a sharper peak. My final Step 4 uses BOTH.
+- Step 2 uses neither: it only unrolls the pictures and checks the slide with the known answer.
+- **Cross-correlation in Step 3 (tested, Step 3 settings):**
+
+| Test | True | Phase correlation | Cross-correlation |
+|---|---|---|---|
+| test1 | 30°, ×1.0 | 30.0°, ×1.000 | 30.0°, ×1.000 |
+| test2 | 0°, ×1.5 | 0.0°, ×1.487 | 0.0°, ×1.483 |
+| test3 | 45°, ×1.5 | 46.1°, ×1.519 | 15.0°, ×2.050 (wrong) |
+| test4 | 135°, ×2.0 | 137.3°, ×2.060 | 127.0°, ×1.123 (wrong) |
+| test5 | 90°, ×1.2 | 88.0°, ×1.260 | 112.0°, ×0.675 (wrong) |
+
+  Both find turn + zoom for test1–2; NEITHER can handle the moved photos (3–5), because the problem
+  is the different middle, not the matching method. Cross-correlation's best slide is only a little
+  better than the 50th best (0.29 vs 0.26: a gentle hill); phase correlation gives a clear spike.
+- **Step 4 exactly:** (1) pick the test photo's standing spot (middle + most detailed spot);
+  (2) rough search: score every spot of the 4× smaller original with both methods; (3) each method
+  keeps its 6 best spots (12); (4) exact search around those 12 at full size, best peak wins → that
+  spot gives the MOVE, the slide there gives TURN + ZOOM; (5) put the photo back for each standing spot
+  and keep the answer that really lines up best.
+
