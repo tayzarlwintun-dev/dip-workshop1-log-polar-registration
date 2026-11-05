@@ -549,3 +549,14 @@ Picture: `explanations/step4_explained.png` (test4).
 - Order: shrink BOTH photos 4× → both methods score every place → 6 best each = 12 → full size,
   every pixel around the 12 with phase correlation → best = cyan circle → put the photo back to check.
 
+## Q26. Step 3 vs Step 4 with pictures (test3)
+Picture: `explanations/step3_vs_step4.png`.
+- **Step 3 = ONE check:** clock picture at the original's middle vs at test3's middle. test3 is moved,
+  so its middle is a DIFFERENT building → no clear dot, peak 0.03.
+- **Step 4 = the same check at MANY spots:** test3's middle stays fixed; the original's clock picture
+  is made at every spot. Spot A (sky): peak 0.04, spot B (street): 0.03 → wrong places.
+  Spot C (the right place): one clear dot, peak 0.25 → the dot gives turn 45° and zoom ×1.5,
+  and where C is gives the move.
+- Phase correlation alone was enough for my 5 tests (old version); for the hard tests it missed B2
+  (sky) and cross-correlation alone missed B1 and B3; both together found all 13.
+
