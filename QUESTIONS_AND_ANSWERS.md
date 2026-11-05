@@ -476,3 +476,38 @@ of sliding them. The log makes every "×2" the same width, so a zoom becomes a s
   test2: 17.1 columns = ×1.487). For moved photos (test3–5) it fails, because the middle of the test
   photo shows a different place, so the two clock pictures are of different things.
 
+## Q22. The Step 3 picture: what is the dot, the peak, phase correlation, 360, 256, 376?
+- **Each box** = a map of every possible slide (up/down = rows slid = turn, left/right = columns
+  slid = zoom). **The dot in the circle** = the best slide. Its position gives turn and zoom
+  (test1: 30 up, 0 right = 30°, no zoom). The dot does NOT measure the move.
+- **Peak** = brightness of the best dot = how well the clock pictures match (1 perfect, 0 none).
+  Bigger = more sure. test1 0.85, test2 0.70, test3–5 0.03 (moved photos: middles show different
+  places, so no slide matches). Step 4 keeps the standing spot with the highest peak.
+- **Phase correlation** = turn both pictures into waves (Fourier), compare only WHERE each wave sits
+  (the phase), every wave "votes" for a slide; the bright dot is where the votes agree. All slides
+  at once, very fast, sharp answer.
+- **360 rows** = one per degree (1 row = 1° of turn).
+- **376 px** = the farthest point from the middle = a corner: √(209² + 312.5²) = 376 (half the diagonal),
+  code: `np.hypot(w / 2, h / 2)`.
+- **256 columns** = distance steps from 1 to 376 px on a log ruler: each column = 376^(1/256) = ×1.023
+  = 2.3% farther. Zoom ×2 = 30 columns; ×1.5 = 17.5 columns. In Step 4 (180 px): 2.0% per column.
+
+## Q23. Is 256 columns (2.3% per column) better?
+256 is a CHOICE (balance), and 2.3% is the RESULT of choosing 256 (with 376 px), not the reason.
+Test (Step 3, test2 = zoom ×1.5, time per try on Claude's computer):
+
+| Columns | 1 column = | test2 zoom error | Time per try |
+|---|---|---|---|
+| 64 | 9.7% | 2.69% | 1.5 ms |
+| 128 | 4.7% | 0.40% | 2.3 ms |
+| 256 | 2.3% | 0.88% | 4.5 ms |
+| 512 | 1.2% | 0.29% | 9.7 ms |
+| 1024 | 0.6% | 0.36% | 20.3 ms |
+
+- More columns = finer steps but SLOWER (double columns ≈ double time).
+- From 128 columns on, the error stays around 0.3–0.9%: other things limit it (the zoomed photo is
+  re-calculated = a little blurry, black corners), and the parabola already reads between columns.
+- So 256 is a reasonable choice, not the proven best; the optimizer (Step 6) makes it exact anyway.
+- Speed matters in Step 4: it makes thousands of clock pictures per test.
+- Turn (test1) was exactly 30.00° for every number of columns (columns only affect zoom).
+
