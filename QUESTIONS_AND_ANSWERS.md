@@ -560,3 +560,19 @@ Picture: `explanations/step3_vs_step4.png`.
 - Phase correlation alone was enough for my 5 tests (old version); for the hard tests it missed B2
   (sky) and cross-correlation alone missed B1 and B3; both together found all 13.
 
+## Q27. How does the optimizer work? What does "blurry first" mean? Why does it fail alone?
+Picture: `explanations/optimizer_explained.png`.
+- **How it works:** put the test photo back with the current 6 knobs, then for EVERY pixel subtract
+  brightness (original − test, numbers 0–255), square, average. It does NOT know sky or building –
+  only numbers. It nudges each knob a tiny bit to feel which way makes the difference smaller (downhill),
+  takes a step, repeats, stops when no step helps.
+- **Blurry:** BOTH photos (original and test) are blurred the same way (`cv2.GaussianBlur`), first
+  blur 4, then 2, 1, 0.5. Sharp photos make a bumpy hill with small dips (thin edges only line up at
+  exactly the right place); test1: a small dip at −1°, right next to the "no change" start → stuck.
+  Blurry photos make one smooth valley → no small dips; then sharper photos make the bottom exact.
+- **Why it fails alone:** it only feels the slope right where it stands; it can't see or jump to the
+  right valley. From "no change" it is far from the answer (30°–135°) with all 6 knobs wrong at once,
+  so it walks into a WRONG valley – e.g. it stretched test4/test5 into blurry stripes, because a smooth
+  smear has a smaller brightness difference than a wrong sharp photo. Lost on 5/5 tests
+  (`step9_optimizer_alone.py`). Step 4 starts it at the bottom of the right valley.
+

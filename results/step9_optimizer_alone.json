@@ -7,10 +7,10 @@
       0,
       0
     ],
-    "optimizer_alone_pixels_off": 41.64,
-    "optimizer_alone_seconds": 53.6,
-    "logpolar_plus_optimizer_pixels_off": 0.0055,
-    "logpolar_plus_optimizer_seconds": 7.0
+    "optimizer_alone_pixels_off": 36.17,
+    "optimizer_alone_seconds": 45.0,
+    "logpolar_plus_optimizer_pixels_off": 0.005,
+    "logpolar_plus_optimizer_seconds": 4.5
   },
   {
     "name": "test2",
@@ -20,10 +20,10 @@
       0,
       0
     ],
-    "optimizer_alone_pixels_off": 58.44,
-    "optimizer_alone_seconds": 5.2,
-    "logpolar_plus_optimizer_pixels_off": 0.0147,
-    "logpolar_plus_optimizer_seconds": 6.0
+    "optimizer_alone_pixels_off": 58.35,
+    "optimizer_alone_seconds": 3.4,
+    "logpolar_plus_optimizer_pixels_off": 0.0151,
+    "logpolar_plus_optimizer_seconds": 4.8
   },
   {
     "name": "test3",
@@ -33,10 +33,10 @@
       20,
       -15
     ],
-    "optimizer_alone_pixels_off": 129.97,
-    "optimizer_alone_seconds": 6.9,
+    "optimizer_alone_pixels_off": 130.0,
+    "optimizer_alone_seconds": 5.4,
     "logpolar_plus_optimizer_pixels_off": 0.0012,
-    "logpolar_plus_optimizer_seconds": 5.7
+    "logpolar_plus_optimizer_seconds": 3.7
   },
   {
     "name": "test4",
@@ -46,10 +46,10 @@
       -25,
       30
     ],
-    "optimizer_alone_pixels_off": 15058.08,
-    "optimizer_alone_seconds": 16.5,
-    "logpolar_plus_optimizer_pixels_off": 0.0021,
-    "logpolar_plus_optimizer_seconds": 5.7
+    "optimizer_alone_pixels_off": 2037.02,
+    "optimizer_alone_seconds": 7.3,
+    "logpolar_plus_optimizer_pixels_off": 0.0023,
+    "logpolar_plus_optimizer_seconds": 3.6
   },
   {
     "name": "test5",
@@ -59,9 +59,9 @@
       10,
       10
     ],
-    "optimizer_alone_pixels_off": 8599.82,
-    "optimizer_alone_seconds": 47.5,
+    "optimizer_alone_pixels_off": 8612.05,
+    "optimizer_alone_seconds": 35.1,
     "logpolar_plus_optimizer_pixels_off": 0.0048,
-    "logpolar_plus_optimizer_seconds": 5.9
+    "logpolar_plus_optimizer_seconds": 3.5
   }
 ]
