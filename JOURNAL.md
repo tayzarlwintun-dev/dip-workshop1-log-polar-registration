@@ -417,3 +417,13 @@ likely teacher questions with answers, and a demo checklist.
 Link: https://claude.ai/artifact/15uHsq92yXcfQCxybAuw4B
 **Next:** practise the script once out loud; ask Claude about anything I don't understand.
 
+## Step 14 – Optimizer ALONE test in the final version (2026-11-07)
+**Why:** to show the paper's main point in the final folder (the old Step 9 comparison script that
+had it is only in the git history).
+**Did:** new `step9_optimizer_alone.py`: on my 5 tests, (A) optimizer alone starting from "no change"
+vs (B) log-polar (Step 4) + optimizer. Picture `results/step9_optimizer_alone.png`.
+**Results (Claude's computer):** A: lost on 5 of 5 (41.6, 58.4, 130.0, 15,058, 8,600 px off).
+B: 0.001–0.015 px off. → the optimizer only works if it starts close (the paper says within ×2 zoom
+and 45°; mine got lost even at 30° and no zoom).
+**Note:** numbers on my Mac can differ (earlier Mac run: test1 36 px, test4 2,037 px) – when the
+optimizer is lost, where it ends is almost random. The verdict (lost) is the same.

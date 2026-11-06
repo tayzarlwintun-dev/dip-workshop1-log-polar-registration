@@ -28,6 +28,7 @@ automatically, then puts picture 2 back on top of picture 1.
 | `step6_optimizer.py` | Levenberg–Marquardt fine-tuning of 6 numbers (like the paper) |
 | `step7_hard_tests.py` | 8 hard test photos (B0–B3 paper-style, C1–C4 extra) with Steps 4 + 6 |
 | `step8_zoom_limits.py` | how far can we zoom? ×0.25 … ×10 → works ×0.5 – ×2 |
+| `step9_optimizer_alone.py` | the paper's point: optimizer ALONE gets lost on 5/5 tests; log-polar + optimizer ≤ 0.02 px |
 | `experiments/zoom_fix/zoom_fix_test.py` | TEST ONLY: zoom guesses + swap photos → works ×0.35 – ×5 |
 
 (The journal uses its own step numbers: "Step 7" there = report notes, Steps 8–9 = comparison
@@ -60,6 +61,7 @@ python step5_align_and_overlay.py
 python step6_optimizer.py
 python step7_hard_tests.py            # ~1-2 min
 python step8_zoom_limits.py           # ~2-4 min
+python step9_optimizer_alone.py       # ~1-3 min
 ```
 
 ## Tools

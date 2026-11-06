@@ -44,3 +44,5 @@
 | 2026-11-04 | 12 | Main method at ×3 (turn 40°) | works (C1 ×3 worked) | FAILED (404 px) | no | ×3 only sometimes → safe range ×0.5–×2 |
 | 2026-11-04 | 12 | Experiment (zoom guesses + swap), ×0.35 … ×5 | works | all OK (0.002–0.069 px) | yes | test only, main unchanged; ~60 s per test |
 | 2026-11-04 | 12 | Experiment at ×0.25, ×6, ×8, ×10 | ? | FAILED | no | city too tiny / test photo too blurry |
+| 2026-11-07 | 14 | Optimizer ALONE (start: no change) on my 5 tests | gets lost | lost on 5/5 (41.6 – 15,058 px off) | yes (expected) | paper's main point |
+| 2026-11-07 | 14 | Log-polar + optimizer on my 5 tests | < 0.1 px | 0.001 – 0.015 px | yes | |

@@ -197,6 +197,9 @@ Use `results/step9_old_vs_new.png` and `results/step7_hard_tests.png` as figures
   loses the spot; ≥ ×6 the test photo is too blurry because my photo is small) and at ×0.35 or less
   (test photo mostly black). The paper claims up to ×10 (×4 in practice) → weaker than the paper here.
 
+- **Optimizer alone (`step9_optimizer_alone.py`):** lost on all 5 tests (tens to thousands of px off);
+  with log-polar first 0.001–0.015 px. Figure `results/step9_optimizer_alone.png`.
+
 ## 9. Conclusion (1 paragraph)
 
 Log-polar turns rotation and zoom into simple slides, which phase correlation finds
